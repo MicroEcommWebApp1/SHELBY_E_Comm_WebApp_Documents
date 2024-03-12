@@ -1,0 +1,32 @@
+.header-with-line {
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-left: 20px;
+  }
+  .header-with-line::after {
+    content: "";
+    display: block;
+    width: 100%;
+    margin: auto;
+    padding-top: 5px;
+    border-bottom:2px solid red;
+  }
+  .clearfix{
+     
+      padding-bottom: 40px;
+     
+ 
+    }
+  .terms{
+    padding-right : 40px;
+    padding-left: 40px;
+  }
+  h2{
+    padding-left:30px;
+    padding-top: 40px;
+  }
+ 
+ 
+ 
+   
+ 
