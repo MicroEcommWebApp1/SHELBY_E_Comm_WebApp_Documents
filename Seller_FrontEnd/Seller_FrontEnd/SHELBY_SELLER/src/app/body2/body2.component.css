@@ -1,0 +1,91 @@
+
+.body{
+    background-image:  url('../../assets/BG_for_LOGIN.jpg');
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+ 
+  .mb-3 app-logo {
+    background-image: url('../../assets/SHELBY_LOGO.png');
+   
+  }
+   
+  .bg {
+    color: #d4d5de;
+    text-align: center;
+   
+  }
+  .text-center {
+    text-align: center;
+    padding: 50px 0; /* Add some padding for better spacing */
+  }
+   
+  .hero {
+    margin-bottom: 50px; /* Add margin to separate sections */
+  }
+   
+  .app-logo {
+    display: block; /* Make the logo centered */
+    margin: 0 auto 20px; /* Center the logo and add some space below */
+    max-width: 200px; /* Limit the logo's width */
+  }
+   
+  .container {
+    background-color: #eff3f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #fdfafa; /* Set text color to white */
+    padding: 10px; /* Add padding to the paragraphs */
+    border-radius: 5px; /* Add rounded corners */
+    line-height: 1.6;
+    text-align: justify; /* Justify text for a cleaner appearance */
+    max-width: 800px; /* Limit the maximum width of the container */
+     margin: 0 auto;
+     font-size: 18px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #200b7c; 
+    background-image: url('../../assets/BG_for_LOGIN.jpg');
+     
+   
+  }
+   
+  .container img {
+
+    display: block; /* Center the image */
+    margin: 0 auto 20px; /* Center the image and add some space below */
+    max-width: 100%; /* Make sure the image doesn't exceed the container's width */
+   
+  }
+   
+  h1 {
+    font-size: 24px; /* Increase the font size for headings */
+    color: #200b7c; /* Set the color of headings */
+    margin: 0 auto 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  .lead{
+    background-color: #eff3f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #fdfafa; /* Set text color to white */
+    padding: 10px; /* Add padding to the paragraphs */
+    border-radius: 5px; /* Add rounded corners */
+    line-height: 1.6;
+    text-align: justify; /* Justify text for a cleaner appearance */
+    max-width: 800px; /* Limit the maximum width of the container */
+     margin: 0 auto;
+     font-size: 18px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #200b7c;
+    background-image: url('../../assets/BG_for_LOGIN.jpg'); 
+     
+ 
+  }
+  .center-text {
+    text-align: center;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: color-mix(in srgb-linear, color percentage, color percentage);
+}
+ 

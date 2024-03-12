@@ -1,0 +1,69 @@
+
+<div class="main">
+    <div class="register-container">
+        <h2>REGISTER!!</h2>
+    <form action=""  id="validationCheck" name="validationCheck" method="post">
+       
+        <input type="text" id="uname"
+            name="uname"
+            placeholder="Enter your User name" required>
+           
+
+
+       
+        <input type="email" id="email"
+            name="email"
+            placeholder="Enter your email" required>
+<!--
+        <label for="dob">Date of Birth:</label>
+        <input type="date"
+            id="dob" name="dob"
+            placeholder="Enter your DOB" required>  -->
+
+       
+        <input type="password" id="password"
+            name="password"
+            placeholder="Enter your password"
+            pattern=
+            "^(?=.*\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\S{8,}$" required              
+            title="Password must contain at least one number,
+                one alphabet, one symbol, and be at
+                least 8 characters long">
+               
+
+      
+        <input type="password" id="repassword"
+            name="repassword"
+            placeholder="Re-Enter your password" required>
+        <span id="pass"></span>
+       
+        
+        <input type="text" id="cname"
+            name="cname"
+            placeholder="Enter your company name" required>
+
+        
+        <input type="text" id="GSTIN Number"
+            name="gno"
+            placeholder="Enter your GSTIN Number" required
+            maxlength="12" minlength="12">
+           
+          
+        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone Number" onchange="validatePhoneNumber()">
+           
+            <div id="phoneValidationMsg"></div>
+
+   
+              
+                <input type="text" id="address"
+                    name="addresss"
+                    placeholder="Enter your residential address" required>
+
+        <div class="wrap">
+            <input type="submit" onclick="solve()">
+        
+        </div>
+    </form>
+</div>
+</div>
+<script src="app.js"></script>

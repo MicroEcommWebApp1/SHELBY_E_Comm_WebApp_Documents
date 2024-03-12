@@ -1,0 +1,38 @@
+/* navbar.component.css */
+/* styles.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+    padding: 10px 20px;
+}
+
+.logo {
+    width: 70px; /* Adjust width as needed */
+    height: 50px; /* Maintain aspect ratio */
+    background-color: aliceblue;
+}
+
+
+
+.navbar {
+    background-color: #4072ac;
+    overflow: hidden;
+}
+
+
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}

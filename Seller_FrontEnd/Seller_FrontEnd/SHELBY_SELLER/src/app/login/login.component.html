@@ -1,0 +1,14 @@
+<div class="body-container">
+<div class="login-container">
+    <h2>PLEASE LOGIN!!</h2>
+
+    <form action="#"  id="validationCheck" name="validationCheck" method="post">
+      <input type="email" name="email" id="email" placeholder="Email ID" required><br>
+      <input type="password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}" title="Password must contain at least one number, one alphabet, and minimum 8 characters" required><br>
+      <a routerLink="/forgotpassword" color="darkblue">Forgot Password?</a><br><br>
+      <a routerLink="/register" color="darkblue">New User?Create a New Account?</a><br><br>
+      <input type="submit" value="Login">
+    </form>
+    
+  </div>
+</div>
