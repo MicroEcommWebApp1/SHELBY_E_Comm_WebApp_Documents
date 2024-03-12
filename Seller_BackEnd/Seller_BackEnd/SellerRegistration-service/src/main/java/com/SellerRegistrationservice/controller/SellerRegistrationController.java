@@ -27,12 +27,15 @@ public class SellerRegistrationController {
 	}
 
 	@PostMapping("/register")
-	public ResponseEntity<SellerRegistrationDTO> createSellerRegistration(
-			@RequestBody SellerRegistrationDTO sellerRegistrationDTO) {
-		SellerRegistrationDTO createdSellerRegistrationDTO = sellerRegistrationService
-				.createSellerRegistration(sellerRegistrationDTO);
-		return new ResponseEntity<>(createdSellerRegistrationDTO, HttpStatus.CREATED);
-	}
+	public ResponseEntity<?> createSellerRegistration(
+	        @RequestBody SellerRegistrationDTO sellerRegistrationDTO) {
+	    try {
+	        SellerRegistrationDTO createdSellerRegistrationDTO = sellerRegistrationService
+	                .createSellerRegistration(sellerRegistrationDTO);
+	        return new ResponseEntity<>("Seller registration created successfully", HttpStatus.CREATED);
+	    }catch (Exception e) {
+	        return new ResponseEntity<>("Failed to create seller registration: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+	    }}
 
 	@GetMapping("/registereddetails")
 	public ResponseEntity<List<SellerRegistrationDTO>> getAllSellerRegistrations() {
