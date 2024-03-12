@@ -17,6 +17,8 @@ import com.SellerRegistrationservice.repository.SellerRegistrationRepo;
 public class SellerRegistrationServiceImpl implements SellerRegistrationService {
 	private final SellerRegistrationRepo sellerRegistrationRepo;
 	private final ModelMapper modelMapper;
+	@Autowired
+	private EmailSenderService email;
 
 	@Autowired
 	public SellerRegistrationServiceImpl(SellerRegistrationRepo sellerRegistrationRepo, ModelMapper modelMapper) {
@@ -28,6 +30,8 @@ public class SellerRegistrationServiceImpl implements SellerRegistrationService 
 	public SellerRegistrationDTO createSellerRegistration(SellerRegistrationDTO sellerRegistrationDTO) {
 		SellerRegistration createdSellerRegistration = sellerRegistrationRepo
 				.save(modelMapper.map(sellerRegistrationDTO, SellerRegistration.class));
+		email.sendSimpleEmail(sellerRegistrationDTO.getEmailID(), sellerRegistrationDTO.getName()+" Thankyou For Registering into SHELBY E-COMM",
+				"Welcome to our E-Comm Application");
 		return modelMapper.map(createdSellerRegistration, SellerRegistrationDTO.class);
 	}
 
