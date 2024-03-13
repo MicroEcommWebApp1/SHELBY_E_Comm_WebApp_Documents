@@ -27,7 +27,7 @@ public class BuyerServiceImpl implements BuyerService{
 		if(b1 == null) {
 			return new ResponseEntity<>(buyerRepository.save(b2),HttpStatus.OK);
 		}
-		return new ResponseEntity<>("already exits",HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("Already Existing",HttpStatus.BAD_REQUEST);
 	}
 
 	@Override
