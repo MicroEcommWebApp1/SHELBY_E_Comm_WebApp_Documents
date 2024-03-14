@@ -11,4 +11,6 @@ public interface SellerRegistrationService {
 	List<SellerRegistrationDTO> getAllSellerRegistrations();
 
 	boolean validateLogin(LoginDTO loginRequest);
+
+	boolean existsByEmailID(String emailID);
 }

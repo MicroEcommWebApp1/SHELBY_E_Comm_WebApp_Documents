@@ -6,4 +6,6 @@ import com.SellerRegistrationservice.model.SellerRegistration;
 
 public interface SellerRegistrationRepo extends JpaRepository<SellerRegistration, Integer> {
 	SellerRegistration findByEmailID(String email);
+
+	boolean existsByEmailID(String emailID);
 }

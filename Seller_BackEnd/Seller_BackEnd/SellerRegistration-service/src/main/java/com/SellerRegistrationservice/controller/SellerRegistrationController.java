@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,8 @@ import com.SellerRegistrationservice.dto.LoginDTO;
 import com.SellerRegistrationservice.dto.SellerRegistrationDTO;
 import com.SellerRegistrationservice.service.SellerRegistrationService;
 
+import jakarta.validation.Valid;
+@Validated
 @RestController
 @RequestMapping("/seller-registrations")
 public class SellerRegistrationController {
@@ -27,15 +30,21 @@ public class SellerRegistrationController {
 	}
 
 	@PostMapping("/register")
-	public ResponseEntity<?> createSellerRegistration(
-	        @RequestBody SellerRegistrationDTO sellerRegistrationDTO) {
-	    try {
-	        SellerRegistrationDTO createdSellerRegistrationDTO = sellerRegistrationService
-	                .createSellerRegistration(sellerRegistrationDTO);
-	        return new ResponseEntity<>("Seller registration created successfully", HttpStatus.CREATED);
-	    }catch (Exception e) {
-	        return new ResponseEntity<>("Failed to create seller registration: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-	    }}
+	public ResponseEntity<?> createSellerRegistration(@Valid @RequestBody SellerRegistrationDTO sellerRegistrationDTO) {
+		try {
+			// Check if the email ID already exists
+			if (sellerRegistrationService.existsByEmailID(sellerRegistrationDTO.getEmailID())) {
+				return new ResponseEntity<>("Email ID already exists", HttpStatus.CONFLICT);
+			}
+
+			SellerRegistrationDTO createdSellerRegistrationDTO = sellerRegistrationService
+					.createSellerRegistration(sellerRegistrationDTO);
+			return new ResponseEntity<>("Seller registration created successfully", HttpStatus.CREATED);
+		} catch (Exception e) {
+			return new ResponseEntity<>("Failed to create seller registration: " + e.getMessage(),
+					HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 
 	@GetMapping("/registereddetails")
 	public ResponseEntity<List<SellerRegistrationDTO>> getAllSellerRegistrations() {
