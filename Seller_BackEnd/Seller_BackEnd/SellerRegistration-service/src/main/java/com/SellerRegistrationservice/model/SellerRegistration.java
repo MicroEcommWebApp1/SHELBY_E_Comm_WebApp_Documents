@@ -5,21 +5,23 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import lombok.Data;
 
 @Entity
 @Data
-@Table
+@Table(name="seller_registration")
 public class SellerRegistration {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	private String emailID;
+	@Column(unique = true) 
+    private String emailID;
 	private String companyName;
 	private String gstNumber;
 	private String companyAddress;
-	private Long phoneNumber;
+	private String phoneNumber;
 	private String password;
 
 }

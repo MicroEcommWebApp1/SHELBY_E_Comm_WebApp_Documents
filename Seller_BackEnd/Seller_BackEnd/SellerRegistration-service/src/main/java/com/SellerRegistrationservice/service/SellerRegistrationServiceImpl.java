@@ -28,9 +28,14 @@ public class SellerRegistrationServiceImpl implements SellerRegistrationService 
 
 	@Override
 	public SellerRegistrationDTO createSellerRegistration(SellerRegistrationDTO sellerRegistrationDTO) {
+		if (existsByEmailID(sellerRegistrationDTO.getEmailID())) {
+			throw new IllegalArgumentException("Email ID already exists");
+		}
+
 		SellerRegistration createdSellerRegistration = sellerRegistrationRepo
 				.save(modelMapper.map(sellerRegistrationDTO, SellerRegistration.class));
-		email.sendSimpleEmail(sellerRegistrationDTO.getEmailID(), sellerRegistrationDTO.getName()+" Thankyou For Registering into SHELBY E-COMM",
+		email.sendSimpleEmail(sellerRegistrationDTO.getEmailID(),
+				sellerRegistrationDTO.getName() + " Thank you for signing up with SHELBY E-COMM as a Seller Account",
 				"Welcome to our E-Comm Application");
 		return modelMapper.map(createdSellerRegistration, SellerRegistrationDTO.class);
 	}
@@ -49,5 +54,10 @@ public class SellerRegistrationServiceImpl implements SellerRegistrationService 
 		String password = loginRequest.getPassword();
 		SellerRegistration seller = sellerRegistrationRepo.findByEmailID(emailID);
 		return seller != null && seller.getPassword().equals(password);
+	}
+
+	@Override
+	public boolean existsByEmailID(String emailID) {
+		return sellerRegistrationRepo.existsByEmailID(emailID);
 	}
 }
