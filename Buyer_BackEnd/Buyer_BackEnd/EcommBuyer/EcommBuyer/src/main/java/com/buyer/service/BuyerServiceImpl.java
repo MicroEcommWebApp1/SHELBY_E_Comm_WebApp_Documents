@@ -11,23 +11,34 @@ import com.buyer.dto.LoginDto;
 import com.buyer.entity.Buyer;
 import com.buyer.repository.BuyerRepository;
 
+
 @Service
 public class BuyerServiceImpl implements BuyerService{
 	
 	@Autowired
 	private BuyerRepository buyerRepository;
+
+	
 	
 	@Autowired
 	private ModelMapper modelMapper;
+	
+
+    @Autowired 
+    private EmailService email;
 
 	@Override
 	public ResponseEntity<?> buyerRegistration(BuyerDto buyerDto) {
 		Buyer b1=buyerRepository.findByEmail(buyerDto.getEmail());
-		Buyer b2=this.modelMapper.map(buyerDto,Buyer.class);
+		//Buyer b2=this.modelMapper.map(buyerDto,Buyer.class);
 		if(b1 == null) {
-			return new ResponseEntity<>(buyerRepository.save(b2),HttpStatus.OK);
+			Buyer b2=this.modelMapper.map(buyerDto,Buyer.class);
+			buyerRepository.save(b2);
+			email.sendSimpleEmail(buyerDto.getEmail(), buyerDto.getName()+",Thankyou For Registering SHELBY E-COMM",
+					"Welcome to our E-Comm Application");
+			return new ResponseEntity<>("Registered Successfully",HttpStatus.OK);
 		}
-		return new ResponseEntity<>("Already Existing",HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("already exits",HttpStatus.BAD_REQUEST);
 	}
 
 	@Override
@@ -44,7 +55,7 @@ public class BuyerServiceImpl implements BuyerService{
 	}
 
 	@Override
-	public ResponseEntity<?> forgotPassword(String email,String password) {
+	public ResponseEntity<?> forgotPassword(String email,String password){
 		Buyer b4=buyerRepository.findByEmail(email);
 		if(b4 != null) {
 			b4.setPassword(password);
