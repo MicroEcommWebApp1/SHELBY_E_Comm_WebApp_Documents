@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import com.buyer.dto.BuyerDto;
 import com.buyer.dto.LoginDto;
 
+
 public interface BuyerService {
 
 	public ResponseEntity<?> buyerRegistration(BuyerDto buyerDto);
