@@ -5,6 +5,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import lombok.Data;
 
@@ -23,5 +29,14 @@ public class SellerRegistration {
 	private String companyAddress;
 	private String phoneNumber;
 	private String password;
+	
+	@CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime created_at;
+	
+	@UpdateTimestamp
+	@Column(name = "updated_at")
+	private LocalDateTime updated_at;
+	
 
 }

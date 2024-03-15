@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.buyer.dto.BuyerDto;
 import com.buyer.dto.LoginDto;
 import com.buyer.entity.Buyer;
+
 import com.buyer.repository.BuyerRepository;
 
 
@@ -28,17 +29,18 @@ public class BuyerServiceImpl implements BuyerService{
     private EmailService email;
 
 	@Override
-	public ResponseEntity<?> buyerRegistration(BuyerDto buyerDto) {
+	public ResponseEntity<?> buyerRegistration(BuyerDto buyerDto){
 		Buyer b1=buyerRepository.findByEmail(buyerDto.getEmail());
 		//Buyer b2=this.modelMapper.map(buyerDto,Buyer.class);
 		if(b1 == null) {
 			Buyer b2=this.modelMapper.map(buyerDto,Buyer.class);
 			buyerRepository.save(b2);
+			
 			email.sendSimpleEmail(buyerDto.getEmail(), buyerDto.getName()+",Thankyou For Registering SHELBY E-COMM",
 					"Welcome to our E-Comm Application");
 			return new ResponseEntity<>("Registered Successfully",HttpStatus.OK);
 		}
-		return new ResponseEntity<>("already exits",HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("already exists",HttpStatus.BAD_REQUEST);
 	}
 
 	@Override
