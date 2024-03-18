@@ -35,7 +35,6 @@ public class BuyerServiceImpl implements BuyerService{
 		if(b1 == null) {
 			Buyer b2=this.modelMapper.map(buyerDto,Buyer.class);
 			buyerRepository.save(b2);
-			
 			email.sendSimpleEmail(buyerDto.getEmail(), buyerDto.getName()+",Thankyou For Registering SHELBY E-COMM",
 					"Welcome to our E-Comm Application");
 			return new ResponseEntity<>("Registered Successfully",HttpStatus.OK);
