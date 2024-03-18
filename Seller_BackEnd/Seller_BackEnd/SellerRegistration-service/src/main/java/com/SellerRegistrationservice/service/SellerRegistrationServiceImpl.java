@@ -1,17 +1,16 @@
 
 package com.SellerRegistrationservice.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.SellerRegistrationservice.dto.LoginDTO;
 import com.SellerRegistrationservice.dto.SellerRegistrationDTO;
 import com.SellerRegistrationservice.model.SellerRegistration;
 import com.SellerRegistrationservice.repository.SellerRegistrationRepo;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SellerRegistrationServiceImpl implements SellerRegistrationService {
@@ -19,6 +18,8 @@ public class SellerRegistrationServiceImpl implements SellerRegistrationService 
 	private final ModelMapper modelMapper;
 	@Autowired
 	private EmailSenderService email;
+
+
 
 	@Autowired
 	public SellerRegistrationServiceImpl(SellerRegistrationRepo sellerRegistrationRepo, ModelMapper modelMapper) {
@@ -61,3 +62,4 @@ public class SellerRegistrationServiceImpl implements SellerRegistrationService 
 		return sellerRegistrationRepo.existsByEmailID(emailID);
 	}
 }
+

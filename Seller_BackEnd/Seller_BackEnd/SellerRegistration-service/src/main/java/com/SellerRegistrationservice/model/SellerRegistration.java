@@ -8,6 +8,9 @@ import jakarta.persistence.Table;
 
 import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -19,6 +22,8 @@ import lombok.Data;
 @Data
 @Builder
 @Table(name="seller_registration")
+@NoArgsConstructor
+@AllArgsConstructor
 public class SellerRegistration {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +36,7 @@ public class SellerRegistration {
 	private String companyAddress;
 	private String phoneNumber;
 	private String password;
-	
+
 	@CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime created_at;
