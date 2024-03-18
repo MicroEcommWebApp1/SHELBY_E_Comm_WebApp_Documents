@@ -9,12 +9,18 @@ import org.hibernate.annotations.UpdateTimestamp;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+//@AllArgsConstructor
+//@NoArgsConstructor
 @Data
+@Builder
 public class BuyerDto {
 	
-	private Long id;
+	private int id;
 	
 	private String name;
 	
@@ -28,12 +34,12 @@ public class BuyerDto {
 	@Pattern(regexp = "(^$|[0-9]{10})", message="phonenumber must contain 10 digits")
 	private String phonenumber;
 	
-	@CreationTimestamp
+	/*@CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime created_at;
 	
 	@UpdateTimestamp
 	@Column(name = "updated_at")
-	private LocalDateTime updated_at;
+	private LocalDateTime updated_at;*/ 
 	
 }
