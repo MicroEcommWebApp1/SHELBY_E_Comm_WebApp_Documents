@@ -5,6 +5,8 @@ import com.SellerRegistrationservice.dto.SellerRegistrationDTO;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 public interface SellerRegistrationService {
 	SellerRegistrationDTO createSellerRegistration(SellerRegistrationDTO sellerRegistrationDTO);
 
@@ -13,5 +15,9 @@ public interface SellerRegistrationService {
 	boolean validateLogin(LoginDTO loginRequest);
 
 	boolean existsByEmailID(String emailID);
+
+	ResponseEntity<?> forgotPassword(String email);
+
+	ResponseEntity<?> updateProfile(SellerRegistrationDTO profiledto);
 
 }

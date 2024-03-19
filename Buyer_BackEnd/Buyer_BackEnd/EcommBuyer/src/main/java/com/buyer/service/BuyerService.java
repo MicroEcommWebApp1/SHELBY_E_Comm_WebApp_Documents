@@ -14,4 +14,6 @@ public interface BuyerService {
 
 	public ResponseEntity<?> forgotPassword(String email,String password);
 
+	public ResponseEntity<?> getPasswordtoemail(String email);
+
 }

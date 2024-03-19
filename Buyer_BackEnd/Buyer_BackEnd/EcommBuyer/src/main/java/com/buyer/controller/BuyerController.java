@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -42,6 +43,11 @@ public class BuyerController {
 	@PutMapping("/forgotpassword/{email}/{password}")
 	public ResponseEntity<?> forgotPassword(@PathVariable String email,@PathVariable String password){
 		return buyerService.forgotPassword(email,password);
+	}
+	
+	@GetMapping("/forgotpassword/{email}")
+	public ResponseEntity<?> getPasswordtoemail(@PathVariable String email){
+		return buyerService.getPasswordtoemail(email);
 	}
 	 
     
