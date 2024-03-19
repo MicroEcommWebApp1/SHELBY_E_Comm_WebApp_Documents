@@ -31,8 +31,9 @@ public class BuyerServiceImpl implements BuyerService {
 			Buyer b2 = this.modelMapper.map(buyerDto, Buyer.class);
 			buyerRepository.save(b2);
 
-			emailsend.sendSimpleEmail(buyerDto.getEmail(), buyerDto.getName() + ",Thankyou For Registering SHELBY E-COMM",
-					"Welcome to our E-Comm Application");
+			//emailsend.sendSimpleEmail(buyerDto.getEmail(), buyerDto.getName() + ",Thankyou For Registering SHELBY E-COMM",
+				//	"Welcome to our E-Comm Application");
+			emailsend.sendEmailWithAttachment(buyerDto.getEmail(),"welcome to shellby app",buyerDto.getName(), "image");
 			return new ResponseEntity<>("Registered Successfully", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("already exists", HttpStatus.BAD_REQUEST);
@@ -52,21 +53,21 @@ public class BuyerServiceImpl implements BuyerService {
 	}
 
 	@Override
-	public ResponseEntity<?> forgotPassword(String email, String password) {
-		Buyer b4 = buyerRepository.findByEmail(email);
-		if (b4 != null) {
-			b4.setPassword(password);
+	public ResponseEntity<?> update(BuyerDto buyerDto) {
+		Buyer b4 = buyerRepository.findByEmail(buyerDto.getEmail());
+			b4.setPhonenumber(buyerDto.getPhonenumber());
 			buyerRepository.save(b4);
-			return new ResponseEntity<>("Password Reset Done", HttpStatus.OK);
-		}
-		return new ResponseEntity<>("Account Not Found", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>("Successfully updated", HttpStatus.OK);
+		
+		
 	}
 
 	@Override
 	public ResponseEntity<?> getPasswordtoemail(String email) {
+		System.out.println(email);
 		Buyer buyer=buyerRepository.findByEmail(email);
 		if(buyer != null) {
-			emailsend.sendSimpleEmail(email, buyer.getPassword() + ",Thankyou For Registering SHELBY E-COMM",
+			emailsend.sendSimpleEmail(email, buyer.getPassword() + "is your registered password ",
 					"Welcome to our E-Comm Application");
 			return new ResponseEntity<>("Email sent", HttpStatus.OK);
 		}

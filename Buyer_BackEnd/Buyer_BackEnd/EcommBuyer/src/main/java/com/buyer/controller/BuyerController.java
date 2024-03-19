@@ -40,9 +40,9 @@ public class BuyerController {
 		
 	}
 	
-	@PutMapping("/forgotpassword/{email}/{password}")
-	public ResponseEntity<?> forgotPassword(@PathVariable String email,@PathVariable String password){
-		return buyerService.forgotPassword(email,password);
+	@PutMapping("/updateprofile")
+	public ResponseEntity<?> update(@Valid @RequestBody BuyerDto buyerDto){
+		return buyerService.update(buyerDto);
 	}
 	
 	@GetMapping("/forgotpassword/{email}")
