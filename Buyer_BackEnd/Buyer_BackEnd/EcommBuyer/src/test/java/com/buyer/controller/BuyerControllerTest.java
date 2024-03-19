@@ -82,8 +82,8 @@ public class BuyerControllerTest {
         testPassword = "swetha08!";
 		}
 	
-	@Test
-    public void testForgotPassword() throws Exception {
+	
+  /*  public void testForgotPassword() throws Exception {
 		
         // Mocking buyerService.forgotPassword method
         when(buyerService.forgotPassword(testEmail, testPassword)).thenReturn(new ResponseEntity<>(HttpStatus.OK));
@@ -91,7 +91,7 @@ public class BuyerControllerTest {
         		.contentType("application/json")
         		.content(new ObjectMapper().writeValueAsString(testPassword)))
                 .andExpect(status().isOk());
-    } 
+    } */
 	
 
 }

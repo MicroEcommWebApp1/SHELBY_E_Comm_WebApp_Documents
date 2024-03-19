@@ -12,7 +12,7 @@ public interface BuyerService {
 
 	public ResponseEntity<?> buyerLogin(LoginDto login);
 
-	public ResponseEntity<?> forgotPassword(String email,String password);
+	public ResponseEntity<?> update(BuyerDto buyerDto);
 
 	public ResponseEntity<?> getPasswordtoemail(String email);
 
