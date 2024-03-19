@@ -18,9 +18,10 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Data
-//@AllArgsConstructor
-@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
+@Builder
 @Table(name="buyer_registration")
 public class Buyer {
 	

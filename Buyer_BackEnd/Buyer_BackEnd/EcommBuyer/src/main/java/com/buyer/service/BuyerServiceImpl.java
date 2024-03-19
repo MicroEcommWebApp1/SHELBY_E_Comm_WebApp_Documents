@@ -21,7 +21,7 @@ public class BuyerServiceImpl implements BuyerService {
 	private ModelMapper modelMapper;
 
 	@Autowired
-	private EmailService email;
+	private EmailService emailsend;
 
 	@Override
 	public ResponseEntity<?> buyerRegistration(BuyerDto buyerDto) {
@@ -31,7 +31,7 @@ public class BuyerServiceImpl implements BuyerService {
 			Buyer b2 = this.modelMapper.map(buyerDto, Buyer.class);
 			buyerRepository.save(b2);
 
-			email.sendSimpleEmail(buyerDto.getEmail(), buyerDto.getName() + ",Thankyou For Registering SHELBY E-COMM",
+			emailsend.sendSimpleEmail(buyerDto.getEmail(), buyerDto.getName() + ",Thankyou For Registering SHELBY E-COMM",
 					"Welcome to our E-Comm Application");
 			return new ResponseEntity<>("Registered Successfully", HttpStatus.OK);
 		}
@@ -60,6 +60,17 @@ public class BuyerServiceImpl implements BuyerService {
 			return new ResponseEntity<>("Password Reset Done", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Account Not Found", HttpStatus.BAD_REQUEST);
+	}
+
+	@Override
+	public ResponseEntity<?> getPasswordtoemail(String email) {
+		Buyer buyer=buyerRepository.findByEmail(email);
+		if(buyer != null) {
+			emailsend.sendSimpleEmail(email, buyer.getPassword() + ",Thankyou For Registering SHELBY E-COMM",
+					"Welcome to our E-Comm Application");
+			return new ResponseEntity<>("Email sent", HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Email not found", HttpStatus.BAD_REQUEST);
 	}
 
 }

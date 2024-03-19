@@ -66,5 +66,14 @@ public class SellerRegistrationController {
 			return new ResponseEntity<>("Invalid email or password", HttpStatus.UNAUTHORIZED);
 		}
 	}
+	@GetMapping("/forgotpassword/{email}")
+	public ResponseEntity<?> forgotPassword(@PathVariable String email){
+		return sellerRegistrationService.forgotPassword(email);
+	}
+	@PutMapping("/updateprofile")
+	public ResponseEntity<?> updateProfile(@Valid @RequestBody SellerRegistrationDTO profiledto){
+		return sellerRegistrationService.updateProfile(profiledto);
+	}
+	
 
 }
