@@ -1,4 +1,4 @@
-package com.buyer;
+package com.SellerRegistrationservice;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
@@ -9,16 +9,15 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(description = "Buyer Service Documentation"))
-public class EcommBuyerApplication {
+@OpenAPIDefinition(info=@Info(description="Seller Service Documentation"))
+public class SellerRegistrationServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EcommBuyerApplication.class, args);
+		SpringApplication.run(SellerRegistrationServiceApplication.class, args);
 	}
 
 	@Bean
 	public ModelMapper modelMapper() {
 		return new ModelMapper();
 	}
-
 }

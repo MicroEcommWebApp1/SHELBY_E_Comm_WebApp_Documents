@@ -1,4 +1,4 @@
-package com.buyer.entity;
+package com.SellerRegistrationservice.model;
 
 import java.time.LocalDateTime;
 
@@ -16,30 +16,31 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
+@Data
 @Builder
-@Table(name = "buyer_registration")
-public class Buyer {
-
+@Table(name = "seller_registration")
+@NoArgsConstructor
+@AllArgsConstructor
+public class SellerRegistration {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	private String email;
+	@Column(unique = true)
+	private String emailID;
+	private String companyName;
+	private String gstNumber;
+	private String companyAddress;
+	private String phoneNumber;
 	private String password;
-	private String phonenumber;
 
 	@CreationTimestamp
-
-	@Column(name = "createdAt", nullable = false, updatable = false)
+	@Column(name = "created_at", nullable = false, updatable = false)
 	private LocalDateTime createdAt;
 
 	@UpdateTimestamp
-
-	@Column(name = "updatedAt")
+	@Column(name = "updated_at")
 	private LocalDateTime updatedAt;
 
 }

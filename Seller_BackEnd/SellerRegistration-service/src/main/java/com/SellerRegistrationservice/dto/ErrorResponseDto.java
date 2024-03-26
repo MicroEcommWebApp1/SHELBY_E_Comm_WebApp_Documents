@@ -1,4 +1,4 @@
-package com.buyer.dto;
+package com.SellerRegistrationservice.dto;
 
 import java.time.LocalDateTime;
 
