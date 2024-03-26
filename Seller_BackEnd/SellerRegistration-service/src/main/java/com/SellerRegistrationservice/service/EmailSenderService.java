@@ -1,4 +1,4 @@
-package com.buyer.service;
+package com.SellerRegistrationservice.service;
 
 import java.io.File;
 
@@ -13,10 +13,14 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 
 @Service
-public class EmailService {
+public class EmailSenderService {
+
+	private final JavaMailSender mailSender;
 
 	@Autowired
-	private JavaMailSender mailSender;
+	public EmailSenderService(JavaMailSender mailSender) {
+		this.mailSender = mailSender;
+	}
 
 	public void sendSimpleEmail(String toEmail, String body, String subject) {
 		SimpleMailMessage message = new SimpleMailMessage();
@@ -39,7 +43,7 @@ public class EmailService {
 			helper.setText(text);
 
 			String htmlContent = "<html><body><h1>Welcome to our platform!</h1>"
-					+ "<p>We're excited to have you on board.{{text}}</p>" + "<img src='cid:welcomeImage'>"
+					+ "<p>We're excited to have you on board {{text}}</p>" + "<img src='cid:welcomeImage'>"
 					+ "</body></html>";
 			String result = htmlContent.replace("{{text}}", text);
 

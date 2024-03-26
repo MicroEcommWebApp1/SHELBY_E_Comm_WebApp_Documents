@@ -1,5 +1,7 @@
 package com.buyer.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -19,36 +21,42 @@ import com.buyer.service.BuyerService;
 
 import jakarta.validation.Valid;
 
-
 @Validated
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/buyer")
 public class BuyerController {
-	
+
 	@Autowired
 	private BuyerService buyerService;
-	
+
 	@PostMapping("/register")
-	public ResponseEntity<?> buyerRegistration(@Valid @RequestBody BuyerDto buyerDto){
+	public ResponseEntity<String> buyerRegistration(@Valid @RequestBody BuyerDto buyerDto) {
 		return buyerService.buyerRegistration(buyerDto);
 	}
-	
+
 	@PostMapping("/login")
-	public ResponseEntity<?> buyerLogin(@RequestBody LoginDto login){
+	public ResponseEntity<?> buyerLogin(@RequestBody LoginDto login) {
 		return buyerService.buyerLogin(login);
-		
+
 	}
-	
+
 	@PutMapping("/updateprofile")
-	public ResponseEntity<?> update(@Valid @RequestBody BuyerDto buyerDto){
+	public ResponseEntity<String> update(@Valid @RequestBody BuyerDto buyerDto) {
 		return buyerService.update(buyerDto);
 	}
-	
+
 	@GetMapping("/forgotpassword/{email}")
-	public ResponseEntity<?> getPasswordtoemail(@PathVariable String email){
+	public ResponseEntity<String> getPasswordtoemail(@PathVariable String email) {
 		return buyerService.getPasswordtoemail(email);
 	}
-	 
-    
+	@GetMapping("/registereddetails")
+	public List<BuyerDto> getAllBuyerDetails(){	
+		return buyerService.getAllBuyerDetails();
+	}
+ 
+	@GetMapping("/buyerdetails/{email}")
+    public List<BuyerDto> getBuyerdetailsByEmail(@PathVariable String email) {
+        return buyerService.getBuyerdetailsByEmail(email);
+    }
 }
