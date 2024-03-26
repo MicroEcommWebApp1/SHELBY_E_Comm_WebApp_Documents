@@ -15,8 +15,13 @@ import jakarta.mail.internet.MimeMessage;
 @Service
 public class EmailService {
 
+	private final JavaMailSender mailSender;
+
 	@Autowired
-	private JavaMailSender mailSender;
+	public EmailService(JavaMailSender mailSender) {
+	    this.mailSender = mailSender;
+	}
+
 
 	public void sendSimpleEmail(String toEmail, String body, String subject) {
 		SimpleMailMessage message = new SimpleMailMessage();

@@ -18,14 +18,17 @@ import com.buyer.repository.BuyerRepository;
 @Service
 public class BuyerServiceImpl implements BuyerService {
 
-	@Autowired
-	private BuyerRepository buyerRepository;
+	private final BuyerRepository buyerRepository;
+	private final ModelMapper modelMapper;
+	private final EmailService emailService;
 
 	@Autowired
-	private ModelMapper modelMapper;
+	public BuyerServiceImpl(BuyerRepository buyerRepository, ModelMapper modelMapper, EmailService emailService) {
+	    this.buyerRepository = buyerRepository;
+	    this.modelMapper = modelMapper;
+	    this.emailService = emailService;
+	}
 
-	@Autowired
-	private EmailService emailsend;
 
 	@Override
 	public ResponseEntity<String> buyerRegistration(BuyerDto buyerDto) {
@@ -35,7 +38,7 @@ public class BuyerServiceImpl implements BuyerService {
 			Buyer b2 = this.modelMapper.map(buyerDto, Buyer.class);
 			buyerRepository.save(b2);
 
-			emailsend.sendEmailWithAttachment(buyerDto.getEmail(), "welcome to shellby app", buyerDto.getName());
+			emailService.sendEmailWithAttachment(buyerDto.getEmail(), "welcome to shellby app", buyerDto.getName());
 			return new ResponseEntity<>("Registered Successfully", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("already exists", HttpStatus.BAD_REQUEST);
@@ -67,7 +70,7 @@ public class BuyerServiceImpl implements BuyerService {
 
 		Buyer buyer = buyerRepository.findByEmail(email);
 		if (buyer != null) {
-			emailsend.sendSimpleEmail(email, buyer.getPassword() + "is your registered password ",
+			emailService.sendSimpleEmail(email, buyer.getPassword() + "is your registered password ",
 					"Welcome to our E-Comm Application");
 			return ResponseEntity.status(HttpStatus.OK).body("{\"message\": \"EmailID sent\"}");
 		}
