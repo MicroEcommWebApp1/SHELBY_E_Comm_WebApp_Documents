@@ -27,8 +27,13 @@ import jakarta.validation.Valid;
 @RequestMapping("/buyer")
 public class BuyerController {
 
+	private final BuyerService buyerService;
+
 	@Autowired
-	private BuyerService buyerService;
+	public BuyerController(BuyerService buyerService) {
+	    this.buyerService = buyerService;
+	}
+
 
 	@PostMapping("/register")
 	public ResponseEntity<String> buyerRegistration(@Valid @RequestBody BuyerDto buyerDto) {
