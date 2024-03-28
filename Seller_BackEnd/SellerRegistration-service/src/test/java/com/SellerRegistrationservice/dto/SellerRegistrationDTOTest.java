@@ -29,7 +29,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
     }
 }
     @Test
-    public void testValidDTO_Positive() {
+     void testValidDTO_Positive() {
         // Given
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
         dto.setName("Abhinay");
@@ -46,7 +46,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
     }
 
     @Test
-    public void testInvalidDTO_Negative() {
+     void testInvalidDTO_Negative() {
         // Given
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
         dto.setName("Abhinay");
@@ -63,7 +63,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
     }
 
     @Test
-    public void testInvalidDTO_positivecase1() {
+     void testInvalidDTO_positivecase1() {
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
         dto.setName("Abhinay");
         dto.setEmailID("validemail@gmail.com");
@@ -75,7 +75,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
     }
 
     @Test
-    public void testInvalidDTO_negtivecase1(){
+     void testInvalidDTO_negtivecase1(){
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
 
         dto.setEmailID("invalidemail");//invalid email
@@ -91,7 +91,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
 //        }
     }
     @Test
-    public void testInvalidDTO_negtivecase2() {
+     void testInvalidDTO_negtivecase2() {
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
 
         dto.setEmailID("validemail@gmail.com");
@@ -101,7 +101,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
         assertFalse(violations.isEmpty());
     }
     @Test
-    public void testInvalidDTO_positivecase2() {
+     void testInvalidDTO_positivecase2() {
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
         dto.setEmailID("validemail@gmail.com");
         dto.setGstNumber("22AAAAA0000A1Z5");
@@ -110,7 +110,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
     }
 
     @Test
-    public void testInvalidDTO_negitivecase3() {
+     void testInvalidDTO_negitivecase3() {
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
         dto.setEmailID("validemail@gmail.com");
         dto.setGstNumber("22AAAAA0000A1Z");
@@ -125,7 +125,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
     }
 
     @Test
-    public void testInvalidDTO_positivecase3() {
+     void testInvalidDTO_positivecase3() {
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
         dto.setEmailID("validemail@gmail.com");
         dto.setPhoneNumber("8096389823");
@@ -134,7 +134,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
     }
 
     @Test
-    public void testInvalidDTO_negitivecase4() {
+     void testInvalidDTO_negitivecase4() {
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
         dto.setEmailID("validemail@gmail.com");
         dto.setPhoneNumber("123456789a");

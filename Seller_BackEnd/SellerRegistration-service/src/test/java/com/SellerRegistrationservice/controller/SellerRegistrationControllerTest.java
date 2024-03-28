@@ -27,7 +27,7 @@ class SellerRegistrationControllerTest {
     private SellerRegistrationController sellerRegistrationController;
 
     @Test
-    public void testCreateSellerRegistration_Positive() {
+     void testCreateSellerRegistration_Positive() {
         // Mocking behavior
         SellerRegistrationDTO requestDTO = SellerRegistrationDTO.builder()
                 .name("Jamesbond")
@@ -52,7 +52,7 @@ class SellerRegistrationControllerTest {
     }
 
     @Test
-    public void testCreateSellerRegistration_Negative() {
+     void testCreateSellerRegistration_Negative() {
         // Mocking behavior
         SellerRegistrationDTO requestDTO = SellerRegistrationDTO.builder()
                 .name("Jamesbond")
@@ -77,7 +77,7 @@ class SellerRegistrationControllerTest {
     }
 
     @Test
-    public void testGetAllSellerRegistrations_Positive() {
+     void testGetAllSellerRegistrations_Positive() {
         // Mocking behavior
         List<SellerRegistrationDTO> sellerRegistrations = Collections.singletonList(
                 SellerRegistrationDTO.builder()
@@ -101,7 +101,7 @@ class SellerRegistrationControllerTest {
     }
 
     @Test
-    public void testGetAllSellerRegistrations_Negative() {
+     void testGetAllSellerRegistrations_Negative() {
         // Mocking behavior
         when(sellerRegistrationService.getAllSellerRegistrations()).thenReturn(Collections.emptyList());
 
@@ -114,7 +114,7 @@ class SellerRegistrationControllerTest {
     }
 
     @Test
-    public void testLogin_Positive() {
+     void testLogin_Positive() {
         // Mocking behavior
         LoginDTO loginRequest = new LoginDTO("jamesbond@gmail.com", "Password@123"); // Provide necessary data
         when(sellerRegistrationService.validateLogin(loginRequest)).thenReturn(true);
@@ -128,7 +128,7 @@ class SellerRegistrationControllerTest {
     }
 
     @Test
-    public void testLogin_Negative() {
+     void testLogin_Negative() {
         // Mocking behavior
         LoginDTO loginRequest = new LoginDTO("jamesbond@gmail.com", "Password@1234"); // Provide necessary data
         when(sellerRegistrationService.validateLogin(loginRequest)).thenReturn(false);

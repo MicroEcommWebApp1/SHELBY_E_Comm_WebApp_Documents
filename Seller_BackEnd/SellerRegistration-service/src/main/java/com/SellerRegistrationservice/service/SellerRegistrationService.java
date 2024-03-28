@@ -16,9 +16,9 @@ public interface SellerRegistrationService {
 
 	boolean existsByEmailID(String emailID);
 
-	ResponseEntity<?> forgotPassword(String email);
+	ResponseEntity<String> forgotPassword(String email);
 
-	ResponseEntity<?> updateProfile(SellerRegistrationDTO profiledto);
+	ResponseEntity<String> updateProfile(SellerRegistrationDTO profiledto);
 	ResponseEntity<?> getbyid(Long id);
 
 }
