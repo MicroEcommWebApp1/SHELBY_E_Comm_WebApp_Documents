@@ -2,7 +2,6 @@
 package com.SellerRegistrationservice.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +46,7 @@ public class SellerRegistrationServiceImpl implements SellerRegistrationService 
 	public List<SellerRegistrationDTO> getAllSellerRegistrations() {
 		List<SellerRegistration> sellerRegistrations = sellerRegistrationRepo.findAll();
 		return sellerRegistrations.stream()
-				.map(sellerRegistration -> modelMapper.map(sellerRegistration, SellerRegistrationDTO.class))
-				.collect(Collectors.toList());
+				.map(sellerRegistration -> modelMapper.map(sellerRegistration, SellerRegistrationDTO.class)).toList();
 	}
 
 	@Override
@@ -65,7 +63,7 @@ public class SellerRegistrationServiceImpl implements SellerRegistrationService 
 	}
 
 	@Override
-	public ResponseEntity<?> forgotPassword(String email) {
+	public ResponseEntity<String> forgotPassword(String email) {
 		SellerRegistration seller = sellerRegistrationRepo.findByEmailID(email);
 		if (seller != null) {
 			sendemail.sendSimpleEmail(seller.getEmailID(),
@@ -77,7 +75,7 @@ public class SellerRegistrationServiceImpl implements SellerRegistrationService 
 	}
 
 	@Override
-	public ResponseEntity<?> updateProfile(SellerRegistrationDTO profiledto) {
+	public ResponseEntity<String> updateProfile(SellerRegistrationDTO profiledto) {
 		SellerRegistration seller = sellerRegistrationRepo.findByEmailID(profiledto.getEmailID());
 
 		seller.setCompanyAddress(profiledto.getCompanyAddress());

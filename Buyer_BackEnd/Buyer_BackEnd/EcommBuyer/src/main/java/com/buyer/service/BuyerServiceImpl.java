@@ -2,7 +2,6 @@ package com.buyer.service;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +23,10 @@ public class BuyerServiceImpl implements BuyerService {
 
 	@Autowired
 	public BuyerServiceImpl(BuyerRepository buyerRepository, ModelMapper modelMapper, EmailService emailService) {
-	    this.buyerRepository = buyerRepository;
-	    this.modelMapper = modelMapper;
-	    this.emailService = emailService;
+		this.buyerRepository = buyerRepository;
+		this.modelMapper = modelMapper;
+		this.emailService = emailService;
 	}
-
 
 	@Override
 	public ResponseEntity<String> buyerRegistration(BuyerDto buyerDto) {
@@ -46,14 +44,14 @@ public class BuyerServiceImpl implements BuyerService {
 
 	@Override
 	public ResponseEntity<?> buyerLogin(LoginDto login) {
-	    Buyer b3 = buyerRepository.findByEmail(login.getEmail());
-	    if (b3 == null) {
-	        return new ResponseEntity<>("{\"message\": \"Not a registered email\"}", HttpStatus.BAD_REQUEST);
-	    }
-	    if (b3.getPassword().equals(login.getPassword())) {
-	        return new ResponseEntity<>("{\"message\": \"Logged In\"}", HttpStatus.OK);
-	    }
-	    return new ResponseEntity<>("{\"message\": \"Incorrect Password\"}", HttpStatus.BAD_REQUEST);
+		Buyer b3 = buyerRepository.findByEmail(login.getEmail());
+		if (b3 == null) {
+			return new ResponseEntity<>("{\"message\": \"Not a registered email\"}", HttpStatus.BAD_REQUEST);
+		}
+		if (b3.getPassword().equals(login.getPassword())) {
+			return new ResponseEntity<>("{\"message\": \"Logged In\"}", HttpStatus.OK);
+		}
+		return new ResponseEntity<>("{\"message\": \"Incorrect Password\"}", HttpStatus.BAD_REQUEST);
 	}
 
 	@Override
@@ -76,27 +74,26 @@ public class BuyerServiceImpl implements BuyerService {
 		}
 		return new ResponseEntity<>("Email not found", HttpStatus.BAD_REQUEST);
 	}
+
 	@Override
 	public List<BuyerDto> getAllBuyerDetails() {
 		List<Buyer> buyerlist = buyerRepository.findAll();
-        if(buyerlist.size()>0)
-            return buyerlist.stream()
-    				.map(buyer -> modelMapper.map(buyer, BuyerDto.class))
-    				.collect(Collectors.toList());
-        else
-            return null;
- 
-    }
+		if (!buyerlist.isEmpty())
+			return buyerlist.stream().map(buyer -> modelMapper.map(buyer, BuyerDto.class)).toList();
+		else
+			return null;
+
+	}
 
 	@Override
 	public List<BuyerDto> getBuyerdetailsByEmail(String email) {
-	    Buyer buyer = buyerRepository.findByEmail(email);
-	    if (buyer != null) {
-	        BuyerDto buyerDto = modelMapper.map(buyer, BuyerDto.class);
-	        return Collections.singletonList(buyerDto);
-	    } else {
-	        return Collections.emptyList();
-	    }
+		Buyer buyer = buyerRepository.findByEmail(email);
+		if (buyer != null) {
+			BuyerDto buyerDto = modelMapper.map(buyer, BuyerDto.class);
+			return Collections.singletonList(buyerDto);
+		} else {
+			return Collections.emptyList();
+		}
 	}
 
 }

@@ -36,7 +36,7 @@ public class SellerRegistrationController {
 	}
 
 	@PostMapping("/register")
-	public ResponseEntity<?> createSellerRegistration(@Valid @RequestBody SellerRegistrationDTO sellerRegistrationDTO) {
+	public ResponseEntity<String> createSellerRegistration(@Valid @RequestBody SellerRegistrationDTO sellerRegistrationDTO) {
 		try {
 			// Check if the email ID already exists
 			if (sellerRegistrationService.existsByEmailID(sellerRegistrationDTO.getEmailID())) {
@@ -76,12 +76,12 @@ public class SellerRegistrationController {
 	}
 
 	@GetMapping("/forgotpassword/{email}")
-	public ResponseEntity<?> forgotPassword(@PathVariable String email) {
+	public ResponseEntity<String> forgotPassword(@PathVariable String email) {
 		return sellerRegistrationService.forgotPassword(email);
 	}
 
 	@PutMapping("/updateprofile")
-	public ResponseEntity<?> updateProfile(@Valid @RequestBody SellerRegistrationDTO profiledto) {
+	public ResponseEntity<String> updateProfile(@Valid @RequestBody SellerRegistrationDTO profiledto) {
 		return sellerRegistrationService.updateProfile(profiledto);
 	}
 

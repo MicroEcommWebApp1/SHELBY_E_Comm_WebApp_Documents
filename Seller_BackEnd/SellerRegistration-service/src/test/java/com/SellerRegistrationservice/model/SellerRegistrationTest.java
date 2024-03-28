@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SellerRegistrationTest {
 
     @Test
-    public void testSellerRegistrationConstructor() {
+     void testSellerRegistrationConstructor() {
         // Given
         int id = 1;
         String name = "Abhinay";
@@ -41,7 +41,7 @@ class SellerRegistrationTest {
         assertEquals(updatedAt, seller.getUpdatedAt());
     }
     @Test
-    public void testSellerRegistrationConstructor_Negative() {
+     void testSellerRegistrationConstructor_Negative() {
         // Given
         int id = 1;
         String name = "Test Seller";
