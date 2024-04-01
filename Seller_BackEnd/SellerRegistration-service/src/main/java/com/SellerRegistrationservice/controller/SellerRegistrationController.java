@@ -36,18 +36,20 @@ public class SellerRegistrationController {
 	}
 
 	@PostMapping("/register")
-	public ResponseEntity<String> createSellerRegistration(@Valid @RequestBody SellerRegistrationDTO sellerRegistrationDTO) {
+	public ResponseEntity<String> createSellerRegistration(
+			@Valid @RequestBody SellerRegistrationDTO sellerRegistrationDTO) {
 		try {
 			// Check if the email ID already exists
 			if (sellerRegistrationService.existsByEmailID(sellerRegistrationDTO.getEmailID())) {
-				return new ResponseEntity<>("Email ID already exists", HttpStatus.CONFLICT);
+				return ResponseEntity.status(HttpStatus.CONFLICT).body("{\"message\": \"EmailID already Exists\"}");
+
 			}
 
 			sellerRegistrationService.createSellerRegistration(sellerRegistrationDTO);
-			return ResponseEntity.status(HttpStatus.CREATED).body("Seller registration created successfully");
+			return ResponseEntity.ok("{\"message\": \"Seller registration successful\"}");
 		} catch (Exception e) {
-			return new ResponseEntity<>("Failed to create seller registration: " + e.getMessage(),
-					HttpStatus.INTERNAL_SERVER_ERROR);
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body("Failed to create seller registration: " + e.getMessage());
 		}
 	}
 
@@ -64,14 +66,14 @@ public class SellerRegistrationController {
 	@PostMapping("/login")
 	public ResponseEntity<String> login(@RequestBody LoginDTO loginRequest) {
 		if (loginRequest == null || loginRequest.getEmailID().isEmpty() || loginRequest.getPassword().isEmpty()) {
-			return new ResponseEntity<>("EmailID or Password can't be empty", HttpStatus.BAD_REQUEST);
+			return ResponseEntity.badRequest().body("{\"message\": \"EmailID or Password can't be empty\"}");
 		}
 
 		boolean isValidLogin = sellerRegistrationService.validateLogin(loginRequest);
 		if (isValidLogin) {
-			return new ResponseEntity<>("Login successful", HttpStatus.OK);
+			return ResponseEntity.ok("{\"message\": \"Login successful\"}");
 		} else {
-			return new ResponseEntity<>("Invalid email or password", HttpStatus.UNAUTHORIZED);
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"Invalid email or password\"}");
 		}
 	}
 
