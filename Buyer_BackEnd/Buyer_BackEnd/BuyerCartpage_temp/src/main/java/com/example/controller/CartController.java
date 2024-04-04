@@ -7,16 +7,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.example.Dto.CartDto;
+import com.example.dto.CartDto;
 import com.example.service.Cartservice;
-
 
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -24,13 +23,13 @@ import com.example.service.Cartservice;
 @RequestMapping("/cart")
 public class CartController {
 	
-	  private final Cartservice cartservice;
-	  
-	  @Autowired
-	    public CartController(Cartservice cartservice) {
-	        this.cartservice = cartservice;
-	        
-	    }
+	
+	private final Cartservice cartservice;
+	
+	@Autowired
+	public CartController(Cartservice cartservice) {
+		this.cartservice=cartservice;
+	}
 
 	@PostMapping("/cart")
 	public ResponseEntity<String> addtocart(@RequestBody CartDto cartDto){
@@ -54,5 +53,16 @@ public class CartController {
       
     }
 
+	@PatchMapping("/update/{email}/{productId}")
+	public ResponseEntity<String> updateShoppingCart(@RequestBody CartDto cartDto,@PathVariable String email, @PathVariable Long productId) {
+        return cartservice.updateShoppingCart(cartDto, email, productId);
+      
+    }
+	@DeleteMapping("/delcart/{email}")
+	public ResponseEntity<String> deleteListOfProductsByEmail(@PathVariable String email){
+		return cartservice.deleteListOfProductsByEmail(email);
+	}
+
+	
 
 }

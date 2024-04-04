@@ -1,39 +1,44 @@
-package com.example.entity;
-
-import java.time.LocalDateTime;
-
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+package com.example.order.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-public class Cart {
-	
+@Table(name = "Order_table")
+@NoArgsConstructor
+@AllArgsConstructor
+public class Order {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long cartId;
+	@SequenceGenerator(name = "order_seq", sequenceName = "order_seq", initialValue = 200, allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_seq")
+	private Long orderId;
 	
+	private String buyerName;
 	
-    private Long productId;
-
 	private String email;
-
+	
+	private String address;
+	
+	private Long phoneNo;
+	
 	@Column(nullable = false)
-	private String name;
+	private String productName;
 
 	@Column(nullable = false)
 	private String description;
-	 
+
 	@Column(nullable = false)
 	private String thumbnail;
-	 
+
 	@Column(nullable = false)
 	private double price;
 
@@ -49,18 +54,8 @@ public class Cart {
 	@Column(name = "sub_cat2")
 	private String subcategory2;
 	
+	private Long totalAmount;
 	
-	 private Long totalproductPrice;
-
-	@CreationTimestamp
-	@Column(name = "created_at", nullable = false, updatable = false)
-	private LocalDateTime createdAt;
-	    
-	@UpdateTimestamp
-	@Column(name = "updatedAt")
-	private LocalDateTime updatedAt;
-	
-	
-
+	private String status;
 
 }
