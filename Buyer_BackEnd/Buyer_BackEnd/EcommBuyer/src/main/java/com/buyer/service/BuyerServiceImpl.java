@@ -59,7 +59,7 @@ public class BuyerServiceImpl implements BuyerService {
 		Buyer b4 = buyerRepository.findByEmail(buyerDto.getEmail());
 		b4.setPhonenumber(buyerDto.getPhonenumber());
 		buyerRepository.save(b4);
-		return new ResponseEntity<>("Successfully updated", HttpStatus.OK);
+		return new ResponseEntity<>("{\"message\": \"Successfully Updated\"}", HttpStatus.OK);
 
 	}
 

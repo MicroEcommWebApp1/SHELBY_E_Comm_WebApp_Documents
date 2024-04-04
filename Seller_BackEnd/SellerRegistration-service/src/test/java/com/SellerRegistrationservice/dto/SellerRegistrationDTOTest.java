@@ -1,15 +1,16 @@
 package com.SellerRegistrationservice.dto;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Set;
+
+import org.junit.jupiter.api.Test;
+
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
-import org.junit.jupiter.api.Test;
-
-import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 class SellerRegistrationDTOTest {
 //    private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegistrationDTO dto) {
 //        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();

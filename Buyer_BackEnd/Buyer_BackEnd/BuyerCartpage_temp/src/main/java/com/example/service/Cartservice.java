@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
-import com.example.Dto.CartDto;
+import com.example.dto.CartDto;
 
 
 
@@ -22,6 +22,27 @@ public interface Cartservice {
 	ResponseEntity<String> deleteShoppingCart(String email,Long productId);
 
 	List<CartDto> getCartdetailsByEmail(String email);
+
+
+
+
+
+
+	ResponseEntity<String> updateShoppingCart(CartDto cartDto, String email, Long productId);
+
+
+
+
+
+
+	ResponseEntity<String> deleteListOfProductsByEmail(String email);
+
+
+
+
+
+
+	
 
 
 }
