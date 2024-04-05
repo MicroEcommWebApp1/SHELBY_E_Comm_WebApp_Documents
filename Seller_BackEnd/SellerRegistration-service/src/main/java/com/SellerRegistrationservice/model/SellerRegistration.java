@@ -15,6 +15,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
@@ -22,6 +23,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "seller_registration")
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class SellerRegistration {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

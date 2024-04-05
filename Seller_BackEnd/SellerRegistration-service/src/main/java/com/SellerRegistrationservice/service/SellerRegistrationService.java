@@ -3,10 +3,11 @@ package com.SellerRegistrationservice.service;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.SellerRegistrationservice.dto.LoginDTO;
 import com.SellerRegistrationservice.dto.SellerRegistrationDTO;
-
+@Service
 public interface SellerRegistrationService {
 	SellerRegistrationDTO createSellerRegistration(SellerRegistrationDTO sellerRegistrationDTO);
 
