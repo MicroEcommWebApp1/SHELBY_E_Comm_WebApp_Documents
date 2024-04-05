@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 @SpringBootApplication
 @EnableEncryptableProperties
 @OpenAPIDefinition(info=@Info(description="Seller Service Documentation"))
+
 public class SellerRegistrationServiceApplication {
 
 	public static void main(String[] args) {

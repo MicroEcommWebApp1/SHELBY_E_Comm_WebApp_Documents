@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.SellerRegistrationservice.dto.LoginDTO;
@@ -14,19 +15,22 @@ import com.SellerRegistrationservice.dto.SellerRegistrationDTO;
 import com.SellerRegistrationservice.model.SellerRegistration;
 import com.SellerRegistrationservice.repository.SellerRegistrationRepo;
 
-@Service
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
 public class SellerRegistrationServiceImpl implements SellerRegistrationService {
 	private final SellerRegistrationRepo sellerRegistrationRepo;
 	private final ModelMapper modelMapper;
 	private final EmailSenderService sendemail;
 
-	@Autowired
-	public SellerRegistrationServiceImpl(SellerRegistrationRepo sellerRegistrationRepo, ModelMapper modelMapper,
-			EmailSenderService sendemail) {
-		this.sellerRegistrationRepo = sellerRegistrationRepo;
-		this.modelMapper = modelMapper;
-		this.sendemail = sendemail;
-	}
+//	@Autowired
+//	public SellerRegistrationServiceImpl(SellerRegistrationRepo sellerRegistrationRepo, ModelMapper modelMapper,
+//			EmailSenderService sendemail) {
+//		this.sellerRegistrationRepo = sellerRegistrationRepo;
+//		this.modelMapper = modelMapper;
+//		this.sendemail = sendemail;
+//	}
 
 	@Override
 	public SellerRegistrationDTO createSellerRegistration(SellerRegistrationDTO sellerRegistrationDTO) {
