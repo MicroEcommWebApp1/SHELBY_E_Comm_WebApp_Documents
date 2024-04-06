@@ -4,29 +4,24 @@ import java.util.Collections;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import com.buyer.dto.BuyerDto;
 import com.buyer.dto.LoginDto;
 import com.buyer.entity.Buyer;
 import com.buyer.repository.BuyerRepository;
 
-@Service
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
 public class BuyerServiceImpl implements BuyerService {
 
 	private final BuyerRepository buyerRepository;
 	private final ModelMapper modelMapper;
 	private final EmailService emailService;
-
-	@Autowired
-	public BuyerServiceImpl(BuyerRepository buyerRepository, ModelMapper modelMapper, EmailService emailService) {
-		this.buyerRepository = buyerRepository;
-		this.modelMapper = modelMapper;
-		this.emailService = emailService;
-	}
 
 	@Override
 	public ResponseEntity<String> buyerRegistration(BuyerDto buyerDto) {

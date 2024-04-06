@@ -4,25 +4,21 @@ import java.util.Collections;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import com.paymentservice.dto.PaymentDto;
 import com.paymentservice.model.Payment;
 import com.paymentservice.repository.PaymentRepository;
 
-@Service
+import lombok.RequiredArgsConstructor;
+
+@Component
+@RequiredArgsConstructor
 public class PaymentServiceImpl implements PaymentService {
 	private final PaymentRepository paymentrepo;
 	private final ModelMapper modelMapper;
-
-	@Autowired
-	public PaymentServiceImpl(PaymentRepository paymentrepo, ModelMapper modelMapper) {
-		this.paymentrepo = paymentrepo;
-		this.modelMapper = modelMapper;
-	}
 
 	@Override
 	public ResponseEntity<String> addtoPayment(PaymentDto paymentDto) {
