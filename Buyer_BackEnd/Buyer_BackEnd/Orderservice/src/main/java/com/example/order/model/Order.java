@@ -17,45 +17,42 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Order {
-	@Id
-	@SequenceGenerator(name = "order_seq", sequenceName = "order_seq", initialValue = 200, allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_seq")
 	private Long orderId;
-	
-	private String buyerName;
-	
-	private String email;
-	
-	private String address;
-	
-	private Long phoneNo;
-	
-	@Column(nullable = false)
-	private String productName;
+	private Long productId;
+	private Long paymentId;
+		
+		private String buyerName;
+		
+		private String email;
+		
+		private String address;
+		
+		private Long phoneNo;
+		
+		private String productName;
 
-	@Column(nullable = false)
-	private String description;
 
-	@Column(nullable = false)
-	private String thumbnail;
+		private String description;
 
-	@Column(nullable = false)
-	private double price;
+		private String thumbnail;
 
-	@Column(nullable = false)
-	private int quantity;
+		
+		private double price;
 
-	@Column(nullable = false)
-	private String category;
+		
+		private int quantity;
 
-	@Column(name = "sub_cat1")
-	private String subcategory1;
 
-	@Column(name = "sub_cat2")
-	private String subcategory2;
-	
-	private Long totalAmount;
-	
-	private String status;
+		private String category;
+
+
+		private String subcategory1;
+
+		
+		private String subcategory2;
+		
+		private Long totalAmount;
+		private Long totalproductPrice;
+		private String status;
 
 }
