@@ -9,7 +9,7 @@ class SellerregistrationserviceApplicationTests {
 
 	@Test
 	void contextLoads() {
-		assertTrue(true);
+		
 	}
 
 }

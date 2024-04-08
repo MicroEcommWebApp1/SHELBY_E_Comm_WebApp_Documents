@@ -34,11 +34,11 @@ class SellerRegistrationControllerTest {
 	void testCreateSellerRegistration_Positive() {
 		// Mocking behavior
 		SellerRegistrationDTO requestDTO = SellerRegistrationDTO.builder().name("Jamesbond")
-				.emailID("jamesbond@example.com").companyName("DXC Corporation").gstNumber("12ABCDE1234F1Z5")
+				.sellerEmailID("jamesbond@example.com").companyName("DXC Corporation").gstNumber("12ABCDE1234F1Z5")
 				.companyAddress("123 Main Street").phoneNumber("987243211").password("Password@123").build();
 
 		// Adjust the behavior of existsByEmailID() method
-		when(sellerRegistrationService.existsByEmailID(eq(requestDTO.getEmailID()))).thenReturn(false);
+		when(sellerRegistrationService.existsByEmailID(eq(requestDTO.getSellerEmailID()))).thenReturn(false);
 
 		// Performing the test
 		ResponseEntity<?> responseEntity = sellerRegistrationController.createSellerRegistration(requestDTO);
@@ -53,12 +53,12 @@ class SellerRegistrationControllerTest {
 	void testCreateSellerRegistration_Negative() {
 		// Mocking behavior
 		SellerRegistrationDTO requestDTO = SellerRegistrationDTO.builder().name("Jamesbond")
-				.emailID("jamesbond@gmail.com") // Email ID already exists
+				.sellerEmailID("jamesbond@gmail.com") // Email ID already exists
 				.companyName("DXC Corporation").gstNumber("12ABCDE1234F1Z5").companyAddress("123 Main Street")
 				.phoneNumber("987243211").password("Password@123").build();
 
 		// Adjust the behavior of existsByEmailID() method
-		when(sellerRegistrationService.existsByEmailID(eq(requestDTO.getEmailID()))).thenReturn(true);
+		when(sellerRegistrationService.existsByEmailID(eq(requestDTO.getSellerEmailID()))).thenReturn(true);
 
 		// Performing the test
 		ResponseEntity<?> responseEntity = sellerRegistrationController.createSellerRegistration(requestDTO);
@@ -73,7 +73,7 @@ class SellerRegistrationControllerTest {
 	void testGetAllSellerRegistrations_Positive() {
 		// Mocking behavior
 		List<SellerRegistrationDTO> sellerRegistrations = Collections
-				.singletonList(SellerRegistrationDTO.builder().name("Jamesbond").emailID("jamesbond@gmail.com")
+				.singletonList(SellerRegistrationDTO.builder().name("Jamesbond").sellerEmailID("jamesbond@gmail.com")
 						.companyName("DXC Corporation").gstNumber("12ABCDE1234F1Z5").companyAddress("123 Main Street")
 						.phoneNumber("987243211").password("Password@123").build());
 		when(sellerRegistrationService.getAllSellerRegistrations()).thenReturn(sellerRegistrations);

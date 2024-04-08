@@ -34,7 +34,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
         // Given
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
         dto.setName("Abhinay");
-        dto.setEmailID("abhinay@gmail.com");
+        dto.setSellerEmailID("abhinay@gmail.com");
         dto.setCompanyName("DXC");
         dto.setCompanyAddress("Hyderabad");
         dto.setPassword("Abhinay@1");
@@ -51,7 +51,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
         // Given
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
         dto.setName("Abhinay");
-        dto.setEmailID("invalidemail"); // Invalid email format
+        dto.setSellerEmailID("invalidemail"); // Invalid email format
         dto.setCompanyName("DXC");
         dto.setCompanyAddress("Hyderabad");
         dto.setPassword("Abhinay");
@@ -67,7 +67,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
      void testInvalidDTO_positivecase1() {
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
         dto.setName("Abhinay");
-        dto.setEmailID("validemail@gmail.com");
+        dto.setSellerEmailID("validemail@gmail.com");
         dto.setPassword("Abhinay@1");
 
         Set<ConstraintViolation<SellerRegistrationDTO>> violations = validateDTO(dto);
@@ -79,7 +79,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
      void testInvalidDTO_negtivecase1(){
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
 
-        dto.setEmailID("invalidemail");//invalid email
+        dto.setSellerEmailID("invalidemail");//invalid email
         dto.setPassword("Abhinay@1");
 
         Set<ConstraintViolation<SellerRegistrationDTO>> violations = validateDTO(dto);
@@ -95,7 +95,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
      void testInvalidDTO_negtivecase2() {
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
 
-        dto.setEmailID("validemail@gmail.com");
+        dto.setSellerEmailID("validemail@gmail.com");
         dto.setPassword("Abhinay");//invalid password
 
         Set<ConstraintViolation<SellerRegistrationDTO>> violations = validateDTO(dto);
@@ -104,7 +104,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
     @Test
      void testInvalidDTO_positivecase2() {
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
-        dto.setEmailID("validemail@gmail.com");
+        dto.setSellerEmailID("validemail@gmail.com");
         dto.setGstNumber("22AAAAA0000A1Z5");
         Set<ConstraintViolation<SellerRegistrationDTO>> violations = validateDTO(dto);
         assertTrue(violations.isEmpty());
@@ -113,7 +113,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
     @Test
      void testInvalidDTO_negitivecase3() {
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
-        dto.setEmailID("validemail@gmail.com");
+        dto.setSellerEmailID("validemail@gmail.com");
         dto.setGstNumber("22AAAAA0000A1Z");
         Set<ConstraintViolation<SellerRegistrationDTO>> violations = validateDTO(dto);
         assertFalse(violations.isEmpty());
@@ -128,7 +128,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
     @Test
      void testInvalidDTO_positivecase3() {
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
-        dto.setEmailID("validemail@gmail.com");
+        dto.setSellerEmailID("validemail@gmail.com");
         dto.setPhoneNumber("8096389823");
         Set<ConstraintViolation<SellerRegistrationDTO>> violations = validateDTO(dto);
         assertTrue(violations.isEmpty());
@@ -137,7 +137,7 @@ private Set<ConstraintViolation<SellerRegistrationDTO>> validateDTO(SellerRegist
     @Test
      void testInvalidDTO_negitivecase4() {
         SellerRegistrationDTO dto = new SellerRegistrationDTO();
-        dto.setEmailID("validemail@gmail.com");
+        dto.setSellerEmailID("validemail@gmail.com");
         dto.setPhoneNumber("123456789a");
         Set<ConstraintViolation<SellerRegistrationDTO>> violations = validateDTO(dto);
         assertFalse(violations.isEmpty());

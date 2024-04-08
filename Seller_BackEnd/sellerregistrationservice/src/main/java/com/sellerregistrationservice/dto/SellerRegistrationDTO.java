@@ -22,7 +22,7 @@ public class SellerRegistrationDTO {
 	private String name;
 	@NotEmpty
 	@Pattern(regexp = ".*@gmail\\.com$", message = "Email must contain @gmail.com")
-	private String emailID;
+	private String sellerEmailID;
 	private String companyName;
 	@Pattern(regexp = "^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$", message = "GST number should contain unique 15 alphanumeric")
 	private String gstNumber;
