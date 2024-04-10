@@ -64,4 +64,8 @@ public class BuyerController {
     public List<BuyerDto> getBuyerdetailsByEmail(@PathVariable String email) {
         return buyerService.getBuyerdetailsByEmail(email);
     }
+	@GetMapping("/getcount")
+	public int getBuyerCount() {
+		return buyerService.getBuyerCount();
+	}
 }

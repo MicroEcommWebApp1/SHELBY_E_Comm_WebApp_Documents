@@ -39,7 +39,7 @@ public class SellerRegistrationController {
 			@Valid @RequestBody SellerRegistrationDTO sellerRegistrationDTO) {
 		try {
 			// Check if the email ID already exists
-			if (sellerRegistrationService.existsByEmailID(sellerRegistrationDTO.getEmailID())) {
+			if (sellerRegistrationService.existsByEmailID(sellerRegistrationDTO.getSellerEmailID())) {
 				return ResponseEntity.status(HttpStatus.CONFLICT).body("{\"message\": \"EmailID already Exists\"}");
 
 			}
@@ -64,7 +64,7 @@ public class SellerRegistrationController {
 
 	@PostMapping("/login")
 	public ResponseEntity<String> login(@RequestBody LoginDTO loginRequest) {
-		if (loginRequest == null || loginRequest.getEmailID().isEmpty() || loginRequest.getPassword().isEmpty()) {
+		if (loginRequest == null || loginRequest.getSellerEmailID().isEmpty() || loginRequest.getPassword().isEmpty()) {
 			return ResponseEntity.badRequest().body("{\"message\": \"EmailID or Password can't be empty\"}");
 		}
 
@@ -93,5 +93,9 @@ public class SellerRegistrationController {
 	@GetMapping("/sellerdetails/{emailID}")
 	public List<SellerRegistrationDTO> getSellerDetailsByEmail(@PathVariable String emailID) {
 	    return sellerRegistrationService.getSellerDetailsByEmail(emailID);
+	}
+	@GetMapping("/getcount")
+	public int getSellerCount() {
+		return sellerRegistrationService.getSellerCount();
 	}
 }

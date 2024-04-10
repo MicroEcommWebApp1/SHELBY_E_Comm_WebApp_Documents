@@ -16,7 +16,7 @@ class SellerRegistrationTest {
         // Given
         int id = 1;
         String name = "Abhinay";
-        String emailID = "Abhinay@gmail.com";
+        String sellerEmailID = "Abhinay@gmail.com";
         String companyName = "DXC";
         String gstNumber = "123456789012345";
         String companyAddress = "Hyderabad";
@@ -26,14 +26,14 @@ class SellerRegistrationTest {
         LocalDateTime updatedAt = LocalDateTime.now();
 
         // When
-        SellerRegistration seller = new SellerRegistration( id,name, emailID, companyName, gstNumber, companyAddress,
+        SellerRegistration seller = new SellerRegistration( id,name, sellerEmailID, companyName, gstNumber, companyAddress,
                 phoneNumber, password, createdAt, updatedAt);
 
         // Then
         assertNotNull(seller);
         assertEquals(id, seller.getId());
         assertEquals(name, seller.getName());
-        assertEquals(emailID, seller.getEmailID());
+        assertEquals(sellerEmailID, seller.getSellerEmailID());
         assertEquals(companyName, seller.getCompanyName());
         assertEquals(gstNumber, seller.getGstNumber());
         assertEquals(companyAddress, seller.getCompanyAddress());
@@ -47,18 +47,18 @@ class SellerRegistrationTest {
         // Given
         int id = 1;
         String name = "Test Seller";
-        String emailID = "test@gmail.com";
+        String sellerEmailID = "test@gmail.com";
         // Other fields are intentionally left null or empty
 
         // When
-        SellerRegistration seller = new SellerRegistration(id, name, emailID, null, null, null,
+        SellerRegistration seller = new SellerRegistration(id, name, sellerEmailID, null, null, null,
                 null, null, null, null);
 
         // Then
         assertNotNull(seller);
         assertEquals(id, seller.getId());
         assertEquals(name, seller.getName());
-        assertEquals(emailID, seller.getEmailID());
+        assertEquals(sellerEmailID, seller.getSellerEmailID());
         assertNull(seller.getCompanyName());
         assertNull(seller.getGstNumber());
         assertNull(seller.getCompanyAddress());

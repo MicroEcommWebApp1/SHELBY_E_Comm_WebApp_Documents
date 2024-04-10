@@ -29,7 +29,7 @@ public class SellerRegistration {
 	private int id;
 	private String name;
 	@Column(unique = true)
-	private String emailID;
+	private String sellerEmailID;
 	private String companyName;
 	private String gstNumber;
 	private String companyAddress;

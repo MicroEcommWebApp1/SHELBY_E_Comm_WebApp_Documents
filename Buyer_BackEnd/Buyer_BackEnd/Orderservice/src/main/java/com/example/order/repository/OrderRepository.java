@@ -10,5 +10,6 @@ import com.example.order.model.Order;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
 	List<Order> findByEmail(String email);
+	List<Order> findBySellerEmailID(String sellerEmailID);
 
 }

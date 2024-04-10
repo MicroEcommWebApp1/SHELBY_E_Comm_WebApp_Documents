@@ -90,5 +90,9 @@ public class BuyerServiceImpl implements BuyerService {
 			return Collections.emptyList();
 		}
 	}
-
+	@Override
+	public int getBuyerCount() {
+		List<Buyer> buyer=buyerRepository.findAll();
+		return buyer.size();
+	}
 }

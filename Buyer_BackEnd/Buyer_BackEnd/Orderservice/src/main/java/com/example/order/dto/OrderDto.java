@@ -1,6 +1,5 @@
 package com.example.order.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,40 +11,34 @@ public class OrderDto {
 	private Long orderId;
 	private Long productId;
 	private Long paymentId;
-		
-		private String buyerName;
-		
-		private String email;
-		
-		private String address;
-		
-		private Long phoneNo;
-		
-		private String productName;
+	private String sellerEmailID;
+	private Long seller_id;
+	private String buyerName;
 
+	private String email;
 
-		private String description;
+	private String address;
 
-		private String thumbnail;
+	private Long phoneNo;
 
-		
-		private double price;
+	private String productName;
 
-		
-		private int quantity;
+	private String description;
 
+	private String thumbnail;
 
-		private String category;
+	private double price;
 
+	private int quantity;
 
-		private String subcategory1;
+	private String category;
 
-		
-		private String subcategory2;
-		
-		private Long totalAmount;
-		private Long totalproductPrice;
-		private String status;
+	private String subcategory1;
 
+	private String subcategory2;
+
+	private Long totalAmount;
+	private Long totalproductPrice;
+	private String status;
 
 }

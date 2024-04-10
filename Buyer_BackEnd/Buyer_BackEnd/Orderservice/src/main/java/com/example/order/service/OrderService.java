@@ -14,4 +14,6 @@ public interface OrderService {
 
 	List<OrderDto> getOrderdetailsByEmail(String email);
 
+	List<OrderDto> getOrderdetailsBySellerEmailID(String sellerEmailID);
+
 }
