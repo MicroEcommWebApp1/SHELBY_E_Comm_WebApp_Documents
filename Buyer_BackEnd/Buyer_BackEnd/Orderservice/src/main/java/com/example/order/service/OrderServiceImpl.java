@@ -62,4 +62,15 @@ public class OrderServiceImpl implements OrderService {
 		}
 	}
 
+	@Override
+	public List<OrderDto> getOrderdetailsBySellerEmailID(String sellerEmailID) {
+		
+		List<Order> orders = orderrepo.findBySellerEmailID(sellerEmailID);
+		if (!orders.isEmpty()) {
+			return orders.stream().map(order -> modelMapper.map(order, OrderDto.class)).toList();
+		} else {
+			return Collections.emptyList();
+		}
+	}
+
 }

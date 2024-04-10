@@ -21,4 +21,6 @@ public interface BuyerService {
 	
 	public List<BuyerDto> getBuyerdetailsByEmail(String email);
 
+	public int getBuyerCount();
+
 }

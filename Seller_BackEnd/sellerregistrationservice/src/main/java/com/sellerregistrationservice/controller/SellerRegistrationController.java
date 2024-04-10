@@ -94,4 +94,8 @@ public class SellerRegistrationController {
 	public List<SellerRegistrationDTO> getSellerDetailsByEmail(@PathVariable String emailID) {
 	    return sellerRegistrationService.getSellerDetailsByEmail(emailID);
 	}
+	@GetMapping("/getcount")
+	public int getSellerCount() {
+		return sellerRegistrationService.getSellerCount();
+	}
 }

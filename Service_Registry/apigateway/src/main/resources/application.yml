@@ -1,0 +1,33 @@
+
+spring:
+  application:
+    name: apigateway
+  cloud:
+    gateway:
+      routes:
+        - id: buyerregistration-service
+          uri: lb://buyerregistration-service
+          predicates:
+            - Path=/buyer/**
+        - id: SellerRegistration-Service
+          uri: lb://SellerRegistration-Service
+          predicates:
+            - Path=/seller-registrations/**
+        - id: ProductService
+          uri: lb://ProductService
+          predicates:
+            - Path=/products/**
+        - id: BuyerCartpage
+          uri: lb://BuyerCartpage
+          predicates:
+            - Path=/cart/**
+        - id: orderservice
+          uri: lb://orderservice
+          predicates:
+            - Path=/order/**
+        - id: paymentservice
+          uri: lb://paymentservice
+          predicates:
+            - Path=/payment/**
+            
+            

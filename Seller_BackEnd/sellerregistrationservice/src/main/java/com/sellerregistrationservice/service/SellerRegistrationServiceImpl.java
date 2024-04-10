@@ -103,4 +103,10 @@ public class SellerRegistrationServiceImpl implements SellerRegistrationService 
 			return Collections.emptyList();
 		}
 	}
+	@Override
+	public int getSellerCount() {
+		List<SellerRegistration> seller=sellerRegistrationRepo.findAll();
+		
+		return seller.size();
+	}
 }

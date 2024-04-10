@@ -25,4 +25,6 @@ public interface SellerRegistrationService {
 	ResponseEntity<?> getbyid(Long id);
 	public List<SellerRegistrationDTO> getSellerDetailsByEmail(String emailID);
 
+	int getSellerCount();
+
 }

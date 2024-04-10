@@ -17,13 +17,14 @@ import lombok.Data;
 @Data
 @Table(name = "Cart_Buyer")
 public class Cart {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long cartId;
-	
-	
-    private Long productId;
+
+	private Long seller_id;
+	private Long productId;
+	private String sellerEmailID;
 
 	private String email;
 
@@ -32,10 +33,10 @@ public class Cart {
 
 	@Column(nullable = false)
 	private String description;
-	 
+
 	@Column(nullable = false)
 	private String thumbnail;
-	 
+
 	@Column(nullable = false)
 	private double price;
 
@@ -50,19 +51,15 @@ public class Cart {
 
 	@Column(name = "sub_cat2")
 	private String subcategory2;
-	
-	
-	 private Long totalproductPrice;
+
+	private Long totalproductPrice;
 
 	@CreationTimestamp
 	@Column(name = "created_at", nullable = false, updatable = false)
 	private LocalDateTime createdAt;
-	    
+
 	@UpdateTimestamp
 	@Column(name = "updatedAt")
 	private LocalDateTime updatedAt;
-	
-	
-
 
 }
