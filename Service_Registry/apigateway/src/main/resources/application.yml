@@ -29,5 +29,9 @@ spring:
           uri: lb://paymentservice
           predicates:
             - Path=/payment/**
+        - id: Chatservice
+          uri: lb://Chatservice
+          predicates:
+            - Path=/chat/**
             
             
