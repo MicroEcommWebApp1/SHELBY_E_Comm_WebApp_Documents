@@ -1,0 +1,25 @@
+<app-buyernavbar></app-buyernavbar>
+<app-gadgets-header></app-gadgets-header>
+
+
+<section id="product1" class="section-p1">
+    <h4>Latest Collection!!</h4>
+  <div class="pro-container">
+         <div class="pro"  *ngFor="let item of data" >
+            <img [routerLink]="['/productdetail2', item.productId]" src="{{item.thumbnail}}" alt="image">
+
+             <div class="des">
+                 <span>{{item.name}}</span>
+                 <h5>₹{{item.price}}</h5>
+                 <button [routerLink]="['/productdetail2', item.productId]" class="btn btn-sm btn-dark mt-2">
+                    <i class="fa fa-solid fa-info mr-2"></i>&nbsp;view details
+                </button>
+                <br>
+                
+                 <button class="btn btn-sm btn-warning mt-2" (click)="addToCart(item)"><i class="fa fa-cart-plus mr-2"></i>&nbsp;Add to
+                     Cart</button>
+             </div>
+         </div>
+         </div>
+         </section>
+ 

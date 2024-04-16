@@ -1,0 +1,94 @@
+
+  h1{
+    color: #100422;
+   margin-left: 110px;
+    /* margin-bottom: 10px; */
+    
+  }
+  .container-h-custom {
+    width: 100%;
+    min-width: 500px;
+    min-height: 300px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+ .link{
+  margin-left: 100px;
+  color: #0614b4;
+ }
+  
+  .background-image {
+   position: absolute;
+   
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqvhjvqJYaqPxAL8eyw1blT26XRIf5T_6S9A&usqp=CAU');
+    background-size: cover; 
+    filter: blur(5px); 
+  }
+  
+ button{
+  margin-left: 110px;
+ }
+ 
+  img{
+    width: 100px;
+    height:53px;
+ 
+}
+input{
+  padding: 8px;
+  width: 350px;
+}
+.register{
+  margin-left: 60px;
+}
+
+ 
+.nav-link
+{
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: x-large;
+  margin: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  color: #a0a0a0;
+  text-decoration: none;
+  /* padding: 0 20px; */
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: 0.2s;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: rgb(211, 238, 156);
+  transition: 0.5s linear;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+ 
+
+.container-fluid
+{
+  background-color: #031728;
+  width:1400px;
+  height: 70px;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  /* gap: 8px 30px; */
+
+}

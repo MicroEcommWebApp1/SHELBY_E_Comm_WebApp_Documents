@@ -1,0 +1,87 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:disabled {
+  background-color: #f4f4f4;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+.highlight {
+  background-color: #f0f8ff; /* Light blue background */
+  border: 1px solid #87ceeb; /* Light blue border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px; /* Additional padding */
+}
+
+.expiry-date {
+  display: flex;
+}
+
+.expiry-date select {
+  width: 100%; /* Adjust the width as needed */
+  margin-right: 2%; /* Add some margin between the select elements */
+  height: 50px;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    margin: 30px auto;
+  }
+}
