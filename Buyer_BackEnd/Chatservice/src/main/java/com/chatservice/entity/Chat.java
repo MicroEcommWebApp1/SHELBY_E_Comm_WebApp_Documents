@@ -18,8 +18,8 @@ import lombok.Data;
 public class Chat {
 	
 	@Id
-	@SequenceGenerator(name = "chat_seq", sequenceName = "chat_seq", initialValue = 100, allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "chat_seq")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private Long ticketID;
 	private String email;
 	private String name;

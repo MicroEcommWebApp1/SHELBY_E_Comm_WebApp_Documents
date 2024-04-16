@@ -1,0 +1,36 @@
+<app-sellernavbar></app-sellernavbar>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="background-image"></div>
+<div class="form-container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">NAME:</label>
+      <div class="input-box">{{ registerDto.name }}</div>
+    </div>
+    <div class="form-group">
+      <label for="email">EMAIL:</label>
+      <div class="input-box">{{ registerDto.sellerEmailID }}</div>
+    </div>
+    <div class="form-group">
+        <label for="name">COMPANY NAME:</label>
+        <div class="input-box">{{ registerDto.companyName }}</div>
+      </div>
+      <div class="form-group">
+        <label for="name">GSTIN:</label>
+        <div class="input-box">{{ registerDto.gstNumber}}</div>
+      </div>
+     <div class="form-group">
+        <label for="companyAddress">COMPANY ADDRESS:</label><br>
+        <input type="text" id="companyAddress" formControlName="companyAddress">
+        <div style="color: rgb(196, 49, 49);" *ngIf="form.controls['companyAddress'].invalid && form.controls['companyAddress'].touched">Please enter your Address</div>
+      </div>
+    <div class="form-group">
+      <label for="phoneNumber">PHONE NUMBER</label><br>
+      <input type="tel" id="phoneNumber" formControlName="phoneNumber">
+      <div style="color: rgb(196, 49, 49);" *ngIf="form.controls['phoneNumber'].invalid && form.controls['phoneNumber'].touched">Please enter a valid phone number</div>
+    </div>
+    <div class="profile-saveButton">
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">SAVE</button>
+    </div>
+  </form>
+</div>

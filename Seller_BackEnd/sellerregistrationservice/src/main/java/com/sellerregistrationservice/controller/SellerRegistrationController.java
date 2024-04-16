@@ -24,7 +24,7 @@ import jakarta.validation.Valid;
 
 @Validated
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+
 @RequestMapping("/seller-registrations")
 public class SellerRegistrationController {
 	private final SellerRegistrationService sellerRegistrationService;

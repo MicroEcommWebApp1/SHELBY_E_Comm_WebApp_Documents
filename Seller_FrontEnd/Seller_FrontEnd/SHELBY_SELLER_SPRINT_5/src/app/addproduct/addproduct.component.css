@@ -1,0 +1,95 @@
+
+.main{
+  font-family: Arial, sans-serif;
+  background-image: url('..\..\assets\BG_for_LOGIN.jpg'); 
+  background-size: cover;
+  background-position: center;
+  height: 180vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: left;
+  color: #1c171a;
+  font-weight: bold;
+}
+.add-item-container {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+ 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  background-color: #f6f9fb;
+  align-items: center;
+}
+
+.details-container {
+  width: 50%;
+}
+
+.image-container {
+  width: 50%;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+ 
+select {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #3e2222;
+  border-radius: 5px;
+}
+mat-grid-tile {
+ border :1px solid #0f0909;
+}
+
+.btn-remove-image{
+  position:absolute;
+  cursor:pointer;
+  top:-10px;
+  right:-10px;
+  background-color:red;
+  color:white;
+  border-radius:50%;
+  width:20px;
+  height:auto;
+  text-align:center;
+}
+
+.text-danger {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}

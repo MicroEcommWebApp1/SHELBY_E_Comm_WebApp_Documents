@@ -1,0 +1,169 @@
+
+<app-sellernavbar></app-sellernavbar>
+<div class="main">
+  <div class="add-item-container">
+    
+      <h2>Add New Item</h2>
+      <form  #productForm="ngForm" (ngSubmit)="addProduct(productForm)">
+        
+        <div class="details-container">
+
+         <div> 
+        <label for="name">Product Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="product.name" required  #name="ngModel" >
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+          <div *ngIf="name.errors?.['required']">Product name is required.</div>
+      </div></div>
+       
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" [(ngModel)]="product.description" required #description="ngModel"></textarea>
+        <div *ngIf="description.invalid && (description.dirty || description.touched)" class="text-danger">
+          <div *ngIf="description.errors?.['required']">Description is required.</div>
+      </div>
+      </div>
+      
+
+      <div>
+        <label for="tags">Tags:</label>
+        <textarea id="tags" name="tags" [(ngModel)]="product.tags" required #tags="ngModel"></textarea>
+        <div *ngIf="tags.invalid && (tags.dirty || tags.touched)" class="text-danger">
+          <div *ngIf="tags.errors?.['required']">Please Mention Tags</div>
+      </div>
+      </div>
+        
+     <!--<label for="imageFile">Product Image:</label>
+        <input type="file" id="imageFile" name="imageFile" accept="image/*" required  [(ngModel)]="product.picture" required >
+        <label for="name">Image Name:</label>
+        <input type="text" id="picturename" name="picturename" required [(ngModel)]="item.picturename" required #picturename="ngModel">-->
+
+        <div>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" [(ngModel)]="product.price" required #price="ngModel">
+        <div *ngIf="price.invalid && (price.dirty || price.touched)" class="text-danger">
+          <div *ngIf="price.errors?.['required']">Please Mention the Price</div>
+      </div></div>
+       
+      <div>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" [(ngModel)]="product.quantity" required #quantity="ngModel" >
+        <div *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)" class="text-danger">
+          <div *ngIf="quantity.errors?.['required']">Please Mention Quantity</div>
+      </div></div>
+
+      <div>  
+      <label for="category">Category:</label>
+  <select id="category" name="category" [(ngModel)]="product.category" required #category="ngModel">
+    <option value="">Select Category</option>
+    <option value="apparel">APPAREL</option>
+    <option value="gadgets">GADGETS</option>
+  </select>
+  <div *ngIf="category.invalid && (category.dirty || category.touched)" class="text-danger">
+    <div *ngIf="category.errors?.['required']">Please Mention Category</div>
+</div>
+  </div>
+  
+
+  <div>  
+  <label *ngIf="product.category === 'apparel'" for="subcategory1">Subcategory1:</label>
+  <select *ngIf="product.category === 'apparel'" id="subcategory1" name="subcategory1" [(ngModel)]="product.subcategory1" required #subcategory1="ngModel">
+    <option value="">Select Subcategory</option>
+    <option value="men">Men</option>
+    <option value="women">Women</option>
+  </select>
+ 
+  </div>
+  
+  <div>
+  <label *ngIf="product.category === 'gadgets'" for="subcategory1">Subcategory1:</label>
+  <select *ngIf="product.category === 'gadgets'" id="subcategory1" name="subcategory1" [(ngModel)]="product.subcategory1"  required #subcategory1="ngModel" >
+    <option value="">Select Subcategory</option>
+    <option value="mobile">Mobile Phone</option>
+    <option value="earphone">Earphone</option>
+  </select>
+
+  </div>
+  
+
+  <div>
+  <label *ngIf="product.subcategory1 === 'men' && product.category === 'apparel'" for="subcategory2">Subcategory2:</label>
+  <select *ngIf="product.subcategory1 === 'men' && product.category === 'apparel'" id="subcategory2" name="subcategory2" [(ngModel)]="product.subcategory2"  required #subcategory2="ngModel">
+    <option value="">Select Subcategory2</option>
+    <option value="jean">Jean</option>
+    <option value="shirt">Shirt</option>
+  </select>
+ 
+  </div>
+
+  <div>
+  <label *ngIf="product.subcategory1 === 'women' && product.category === 'apparel'" for="subcategory2">Subcategory2:</label>
+  <select *ngIf="product.subcategory1 === 'women' && product.category === 'apparel'" id="subcategory2" name="subcategory2" [(ngModel)]="product.subcategory2"   required #subcategory2="ngModel">
+    <option value="">Select Subcategory2</option>
+    <option value="kurthi">Kurthi</option>
+    <option value="saree">Saree</option>
+  </select>
+ 
+  </div>
+  
+
+  <div>
+  <label *ngIf="product.subcategory1 === 'mobile' && product.category === 'gadgets'" for="subcategory2">Subcategory2:</label>
+  <select *ngIf="product.subcategory1 === 'mobile' && product.category === 'gadgets'" id="subcategory2" name="subcategory2" [(ngModel)]="product.subcategory2"  required #subcategory2="ngModel">
+    <option value="">Select Subcategory2</option>
+    <option value="apple">Apple</option>
+    <option value="samsung">Samsung</option>
+  </select>
+ 
+</div>
+  
+  <div>
+  <label *ngIf="product.subcategory1 === 'earphone' && product.category === 'gadgets'" for="subcategory2">Subcategory2:</label>
+  <select *ngIf="product.subcategory1 === 'earphone' && product.category === 'gadgets'" id="subcategory2" name="subcategory2" [(ngModel)]="product.subcategory2"  required #subcategory2="ngModel">
+    <option value="">Select Subcategory2</option>
+    <option value="boat">BOAT</option>
+    <option value="noise">Noise</option>
+  </select>
+ </div>
+
+
+    <div>
+    <label for="name">Thumbnail URL:</label>
+    <input type="text" id="thumbnail" name="thumbnail" [(ngModel)]="product.thumbnail"  required #thumbnail="ngModel" >
+    <div *ngIf="thumbnail.invalid && (thumbnail.dirty || thumbnail.touched)" class="text-danger">
+      <div *ngIf="thumbnail.errors?.['required']">Thumbnail is required.</div>
+  </div>  
+  </div>
+  
+  </div>
+
+   <div class="image-container">
+        <div>  <label for="imageFile">Product Images:(Only ".png" files)</label>
+          <input type="file" id="productImages" multiple value="select" #selecFile (change)="onFileSelected($event)"  ></div>
+          <div class="mt-5">
+            <div class="row">
+              <mat-grid-list cols="2" rowHeight="2:1">
+                <mat-grid-tile *ngFor="let file of product.productImages; let i=index">
+                  <div style="position : relative">
+                   <span class="btn-image-remover" (click)="removeImages(i)">x</span>
+                    <img [src]="file.url" width="100px" height="100px">
+                    <span class="btn-image-remover">x</span>
+                  </div>
+
+                </mat-grid-tile>
+                
+              </mat-grid-list>
+            </div>
+
+          </div>
+</div>
+        <br><br>
+       
+       
+        <button type="submit"  *ngIf="isNewProduct">ADD PRODUCT</button>
+        <button type="submit" *ngIf="!isNewProduct" >UPDATE PRODUCT</button>
+      </form>
+    </div>
+  
+    </div>
+
+    

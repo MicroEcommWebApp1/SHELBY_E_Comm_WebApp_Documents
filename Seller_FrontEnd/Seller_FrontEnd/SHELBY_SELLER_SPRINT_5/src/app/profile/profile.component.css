@@ -1,0 +1,187 @@
+
+
+
+/* Header */
+header {
+  background-color:#031728; 
+  padding: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height: 60px;
+  width: 150px; 
+  
+}
+img{
+  height:53px;
+  width:auto;
+}
+.search-bar {
+  display: inline-block;
+}
+
+.search-bar input {
+  padding: 5px;
+}
+
+.buttn{
+  background-color: #f1f1f1;
+  color: black;
+  
+}
+.navbar-center {
+  display: flex;
+  align-items: center; /* Vertically center items */
+}
+
+.form-control {
+  flex: 1; /* Take remaining space */
+  margin-right: 10px; 
+  
+}
+.btn-outline-success {
+  background-color: white; /* Set background color to white */
+  color: black; /* Set text color to black */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+}
+
+.btn-outline-success:hover {
+background-color: #9dffd9; /* Change background color on hover */
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+nav {
+  background-color:#031728;
+  color: #fff;
+  padding: 10px 0;
+}
+.navbar-center {
+  display: flex;
+  align-items: center; /* Vertically center items */
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+ 
+.sidenav {
+  height: 450px;
+  width: 200px;
+  position: absolute;
+  z-index: 1;
+  top: 82px;
+  right: 0;
+  background-color:#031728;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+ 
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #b3afaf;
+  display: block;
+}
+ 
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+ 
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+.page-profile {
+  width: 30%;
+  height: 60%;
+  margin: 0 auto; 
+  margin-top: 50px;/* Center horizontally */
+}
+
+.profile-card {
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  padding: 35px;
+  background-color: #f9f9f9;
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.profile-infoLabel {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.profile-infoLabel p {
+  margin: 5px 0;
+  font-weight: bolder;
+
+}
+
+.profile-editButton {
+  text-align: center;
+}
+
+.edit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.edit-button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Styling for the button */
+.btn {
+  background-color: #1e98b7;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #b2e5f6;
+}
+
+.profile-card hr {
+  width: 100%;
+  margin: 20px 0;
+  border: 2;
+  border-top: 1px solid #615b5b;
+}
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqvhjvqJYaqPxAL8eyw1blT26XRIf5T_6S9A&usqp=CAU');
+  background-size: cover; 
+  filter: blur(5px); 
+}

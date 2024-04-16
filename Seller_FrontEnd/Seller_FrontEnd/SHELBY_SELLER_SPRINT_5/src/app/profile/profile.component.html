@@ -1,0 +1,27 @@
+<app-sellernavbar></app-sellernavbar>
+<div class="box">
+ 
+    <div class="content">
+       
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <div class="page-profile">
+        <div class="profile-card">
+         <div class="profile-infoLabel">MY INFO</div><hr>
+         <div *ngIf="registerDto">
+          <p><b>NAME</b>           : {{ registerDto.name }}</p>
+          <p><b>EMAIL</b>          : {{ registerDto.sellerEmailID }}</p>
+          <p><b>COMPANY NAME</b>   : {{registerDto.companyName}}</p>
+          <p><b>GSTIN</b>          :{{registerDto.gstNumber}}</p>
+          <p><b>COMPANY ADDRESS</b>:{{registerDto.companyAddress}}</p>
+          <p><b>PHONE NUMBER</b>   : {{ registerDto.phoneNumber }}</p>
+       
+        </div><br>
+            
+            <div class="profile-editButton">
+              <button routerLink="/editprofile" type="button" class="btn btn-primary" style="padding-left: 2.5rem; padding-right: 2.5rem;" >Edit</button>
+            </div>
+            </div>  
+            </div></div>
+        

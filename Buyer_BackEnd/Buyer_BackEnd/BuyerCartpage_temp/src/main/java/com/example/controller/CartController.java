@@ -18,7 +18,7 @@ import com.example.dto.CartDto;
 import com.example.service.Cartservice;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+
 @RestController
 @RequestMapping("/cart")
 public class CartController {

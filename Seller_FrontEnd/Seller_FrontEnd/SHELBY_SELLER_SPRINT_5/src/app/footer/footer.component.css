@@ -1,0 +1,13 @@
+/* footer.component.css */
+.footer {
+    background-color: #080909;
+   
+    
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+}
