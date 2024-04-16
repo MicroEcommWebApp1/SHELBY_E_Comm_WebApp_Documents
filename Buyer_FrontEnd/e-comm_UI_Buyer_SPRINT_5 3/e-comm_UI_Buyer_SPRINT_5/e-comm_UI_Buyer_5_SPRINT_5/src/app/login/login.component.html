@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+ 
+
+<div class="background-image"></div>
+
+<div class="container-h-custom">
+    <div class="row d-flex justify-content-center align-items-center ">
+      
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+       
+      <form [formGroup]="loginForm"  (ngSubmit)="loginUser()">
+        <h1 >Login</h1>
+       
+          <div class="formGroup">
+            <input type="text" name="email" id="email" class="form-control "
+                   placeholder="Enter a valid Email" formControlName="email" />
+          </div>
+          
+           <div class="formGroup">
+             <input type="password" name="password" id="password" class=" form-control"
+                   placeholder="Enter password" formControlName="password" />
+           </div>   
+                <br>
+   
+      <div class="d-flex justify-content-between align-items-center">
+    
+      <a href="/forgot-password" class="link">Forgot password?</a>
+      </div>
+   
+      <div class="text-center text-lg-start mt-4 pt-2">
+        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary"
+        style="padding-left: 2.5rem; padding-right: 2.5rem;" >Login</button>
+        </div><br>
+        <br>
+
+        <div class="register">
+        <p >Don't have an account? 
+          <a href="register"
+        class="link-danger">Register</a></p>
+        </div>
+      
+    </form>
+      </div>
+    </div>
+  </div>
+  

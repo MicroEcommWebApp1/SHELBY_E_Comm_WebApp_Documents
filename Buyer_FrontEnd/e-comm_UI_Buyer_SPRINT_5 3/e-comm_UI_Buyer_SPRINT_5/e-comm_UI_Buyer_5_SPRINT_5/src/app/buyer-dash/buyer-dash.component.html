@@ -1,0 +1,45 @@
+<app-buyernavbar></app-buyernavbar>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="background-image"></div>
+<div class="sidenav">
+  <a routerLink="/orderList">Order List</a>
+  <a routerLink="/editprofile"> Edit Profile</a>
+  <a routerLink="/chat"> Need Help ?</a>
+
+  <a (click)="logout()">Logout</a>
+</div>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="page-profile">
+<div class="profile-card">
+ <div class="profile-infoLabel">MY INFO</div><hr>
+ <div *ngIf="buyerDto">
+  <p>Name: {{ buyerDto.name }}</p>
+  <p>Email: {{ buyerDto.email }}</p>
+  <p>Phone Number: {{ buyerDto.phonenumber }}</p>
+</div><br>
+    
+    <div class="profile-editButton">
+      <button type="button" class="btn btn-primary" style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="onEdit()">Edit</button>
+    </div>
+    </div>  
+    </div>
+
+
+<!-- <div class="main">
+  <h2>Profile Details</h2>
+  <div *ngIf="profileData">
+    <p><strong>Name:</strong> {{ profileData.name }}</p>
+    <p><strong>Email:</strong> {{ profileData.email }}</p>
+    <p><strong>Phone:</strong> {{ profileData.phone }}</p>
+  </div> -->
+<!-- </div> -->
+<!-- <div>
+ 
+  <i class="fas fa-question-circle"></i>
+  <app-chat></app-chat>
+</div> -->
+  
+
+
+   

@@ -1,0 +1,97 @@
+img{
+  height:53px;
+  width:auto;
+}
+nav {
+  background-color:#031728;
+  color: #fff;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.navbar-center {
+  display: flex;
+  align-items: center; /* Vertically center items */
+}
+.search-bar {
+  display: inline-block;
+}
+
+.search-bar input {
+  padding: 5px;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqvhjvqJYaqPxAL8eyw1blT26XRIf5T_6S9A&usqp=CAU');
+  background-size: cover; 
+  filter: blur(5px); 
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+ 
+  .form-group {
+    margin-bottom: 20px;
+  }
+ 
+  .label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+ 
+  .input-box {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+ 
+  .profile-saveButton {
+    text-align: center;
+  
+  }
+ 
+ 
+ 
+  .profile-savebutton:hover {
+    background-color: #ffea00;
+    color: #fff;
+  }
+ 
+  /* Styling for the button */
+  /* .btn {
+    background-color: #1e98b7;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+  } */
+ 
+  /* .btn:hover {
+    background-color: #b2e5f6;
+  } */
+ 
+  #phonenumber{
+    padding: 10px;
+    border: 1px solid #f4e5e5;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
