@@ -1,4 +1,3 @@
-
 spring:
   application:
     name: apigateway
@@ -33,5 +32,4 @@ spring:
           uri: lb://Chatservice
           predicates:
             - Path=/chat/**
-            
-            
+     

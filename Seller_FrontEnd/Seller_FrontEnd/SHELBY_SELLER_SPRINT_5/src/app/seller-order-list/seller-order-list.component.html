@@ -1,0 +1,54 @@
+<div class="container">
+    <h1>Seller Order List</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Product ID</th>
+          <th>Payment ID</th>
+          <th>Seller Email</th>
+          <th>Seller ID</th>
+          <th>Buyer Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+          <th>Product Name</th>
+          <th>Description</th>
+          <th>Thumbnail</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Category</th>
+          <th>Subcategory 1</th>
+          <th>Subcategory 2</th>
+          <th>Total Amount</th>
+          <th>Total Product Price</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of sellerOrderList">
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.productId }}</td>
+          <td>{{ order.paymentId }}</td>
+          <td>{{ order.sellerEmailID }}</td>
+          <td>{{ order.seller_id }}</td>
+          <td>{{ order.buyerName }}</td>
+          <td>{{ order.email }}</td>
+          <td>{{ order.address }}</td>
+          <td>{{ order.phoneNo }}</td>
+          <td>{{ order.productName }}</td>
+          <td>{{ order.description }}</td>
+          <td>{{ order.thumbnail }}</td>
+          <td>{{ order.price }}</td>
+          <td>{{ order.quantity }}</td>
+          <td>{{ order.category }}</td>
+          <td>{{ order.subcategory1 }}</td>
+          <td>{{ order.subcategory2 }}</td>
+          <td>{{ order.totalAmount }}</td>
+          <td>{{ order.totalproductPrice }}</td>
+          <td>{{ order.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

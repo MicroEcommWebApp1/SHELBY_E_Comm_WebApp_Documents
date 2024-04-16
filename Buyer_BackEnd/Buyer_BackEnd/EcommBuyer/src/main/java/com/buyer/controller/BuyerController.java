@@ -22,7 +22,7 @@ import com.buyer.service.BuyerService;
 import jakarta.validation.Valid;
 
 @Validated
-@CrossOrigin(origins = "http://localhost:4200")
+
 @RestController
 @RequestMapping("/buyer")
 public class BuyerController {

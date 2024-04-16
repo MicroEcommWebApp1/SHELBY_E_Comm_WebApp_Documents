@@ -1,0 +1,61 @@
+.body-container{
+ 
+  font-family: Arial, sans-serif;
+  background-image: url('..\..\assets\BG.jpg'); 
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container h2{
+  color :#312a82;
+}
+.login-container hi{
+  color :#fff;
+}
+
+ .login-container {
+  background: rgba(255, 255, 255, 0.8);
+
+  background-image: url('..\..\assets\BG_for_LOGIN.jpg'); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 300px;
+    width: 100%;
+    background-color: #4072ac;
+   
+    align-items: center;
+  }
+  
+  .login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+   
+  }
+  
+  .login-container input[type="email"],
+  .login-container input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .login-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .login-container input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
