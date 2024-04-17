@@ -10,7 +10,9 @@ import org.springframework.stereotype.Component;
 
 import com.buyer.dto.BuyerDto;
 import com.buyer.dto.LoginDto;
+import com.buyer.dto.PaymentDto;
 import com.buyer.entity.Buyer;
+import com.buyer.feign.Buyerfeign;
 import com.buyer.repository.BuyerRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -22,6 +24,7 @@ public class BuyerServiceImpl implements BuyerService {
 	private final BuyerRepository buyerRepository;
 	private final ModelMapper modelMapper;
 	private final EmailService emailService;
+	private final Buyerfeign buyerfeign;
 
 	@Override
 	public ResponseEntity<String> buyerRegistration(BuyerDto buyerDto) {
@@ -94,5 +97,11 @@ public class BuyerServiceImpl implements BuyerService {
 	public int getBuyerCount() {
 		List<Buyer> buyer=buyerRepository.findAll();
 		return buyer.size();
+	}
+
+	@Override
+	public ResponseEntity<String> addtoPayment(PaymentDto paymentDto) {
+	
+		return buyerfeign.addPayment(paymentDto);
 	}
 }

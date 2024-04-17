@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.buyer.dto.BuyerDto;
 import com.buyer.dto.LoginDto;
+import com.buyer.dto.PaymentDto;
 @Service
 public interface BuyerService {
 
@@ -22,5 +23,7 @@ public interface BuyerService {
 	public List<BuyerDto> getBuyerdetailsByEmail(String email);
 
 	public int getBuyerCount();
+
+	public ResponseEntity<String> addtoPayment(PaymentDto paymentDto);
 
 }
